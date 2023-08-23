@@ -92,6 +92,7 @@ import { OverflowLayoutModule } from '@fundamental-ngx/core/overflow-layout';
 import { SkeletonModule } from '@fundamental-ngx/core/skeleton';
 import { ContentDensityModule } from '@fundamental-ngx/core/content-density';
 import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
+import { CustomToolbarModule } from '@fundamental-ngx/core/custom-toolbar';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -189,7 +190,8 @@ import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
         OverflowLayoutModule,
         ContentDensityModule,
         SkeletonModule,
-        MultiComboboxModule
+        MultiComboboxModule,
+        CustomToolbarModule
     ]
 })
 export class FundamentalNgxCoreModule {}
