@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { CDKDocumentationComponent } from './documentation/cdk-documentation.component';
 import { HomeDocsComponent } from './component-docs/cdk-home/cdk-home.component';
 import { NewComponentComponent } from './component-docs/new-component/new-component.component';
+import { CDKDocumentationComponent } from './documentation/cdk-documentation.component';
 
 // BEING UPDATED WITH THE SAP-COMPONENT SCHEMATIC; DO NOT MODIFY THE STRUCTURE!
 export const ROUTES: Routes = [
@@ -26,7 +26,7 @@ export const ROUTES: Routes = [
             },
             {
                 path: 'drag-n-drop',
-                loadChildren: () => import('@fundamental-ngx/docs/cdk/drag-n-drop').then((m) => m.DndDocsModule)
+                loadChildren: () => import('@fundamental-ngx/docs/cdk/drag-n-drop').then((m) => m.dndRoutes)
             },
             {
                 path: 'focusable-item',

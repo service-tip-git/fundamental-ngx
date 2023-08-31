@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class CopyService {
     copyText(text: string): boolean {
         const textarea = document.createElement('textarea');
