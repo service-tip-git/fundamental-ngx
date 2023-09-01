@@ -1,0 +1,103 @@
+{
+    "name": "issue-playground",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "prefix": "fundamental-ngx",
+    "sourceRoot": "apps/issue-playground/src",
+    "tags": [
+        "scope:docs",
+        "type:app"
+    ],
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "outputs": [
+                "{options.outputPath}"
+            ],
+            "options": {
+                "outputPath": "dist/apps/issue-playground",
+                "index": "apps/issue-playground/src/index.html",
+                "main": "apps/issue-playground/src/main.ts",
+                "polyfills": [
+                    "zone.js"
+                ],
+                "tsConfig": "apps/issue-playground/tsconfig.app.json",
+                "assets": [
+                    "apps/issue-playground/src/favicon.ico",
+                    "apps/issue-playground/src/assets",
+                    {
+                        "glob": "**/*",
+                        "input": "./node_modules/fundamental-styles/dist/theming/",
+                        "output": "./assets/fundamental-styles-theming/"
+                    },
+                    {
+                        "glob": "**/css_variables.css",
+                        "input": "./node_modules/@sap-theming/theming-base-content/content/Base/baseLib/",
+                        "output": "./assets/theming-base/"
+                    }
+                ],
+                "styles": [
+                    "apps/issue-playground/src/styles.scss",
+                    {
+                        "input": "apps/issue-playground/src/theming/sap_fiori_3_fonts.css",
+                        "inject": false,
+                        "bundleName": "sap_fiori_3_fonts"
+                    },
+                    {
+                        "input": "apps/issue-playground/src/theming/sap_horizon_fonts.css",
+                        "inject": false,
+                        "bundleName": "sap_horizon_fonts"
+                    }
+                ],
+                "scripts": []
+            },
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "options": {
+                "port": 4201
+            },
+            "configurations": {
+                "production": {
+                    "browserTarget": "issue-playground:build:production"
+                },
+                "development": {
+                    "browserTarget": "issue-playground:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "issue-playground:build"
+            }
+        }
+    }
+}
