@@ -8,7 +8,6 @@ import {
     Host,
     Inject,
     Injector,
-    isDevMode,
     OnInit,
     Optional,
     Self,
@@ -16,7 +15,8 @@ import {
     TemplateRef,
     ViewChild,
     ViewContainerRef,
-    ViewEncapsulation
+    ViewEncapsulation,
+    isDevMode
 } from '@angular/core';
 import { ControlContainer, FormsModule, NgControl, NgForm } from '@angular/forms';
 import { FD_FORM_FIELD, FD_FORM_FIELD_CONTROL } from '@fundamental-ngx/cdk/forms';
@@ -46,7 +46,7 @@ import { FormControlModule, FormInputMessageGroupModule, FormMessageModule } fro
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
 import { ListModule, ListSecondaryDirective } from '@fundamental-ngx/core/list';
 import { PopoverBodyComponent, PopoverComponent, PopoverControlComponent } from '@fundamental-ngx/core/popover';
-import { TokenizerComponent, TokenModule } from '@fundamental-ngx/core/token';
+import { TokenModule, TokenizerComponent } from '@fundamental-ngx/core/token';
 import { FdTranslatePipe } from '@fundamental-ngx/i18n';
 import { AutoCompleteDirective, AutoCompleteEvent } from '../../auto-complete/auto-complete.directive';
 import { BaseMultiCombobox, MAP_LIMIT } from '../commons/base-multi-combobox';
