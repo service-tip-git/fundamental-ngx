@@ -1,12 +1,13 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { ThemingModule } from "@fundamental-ngx/core/theming";
-import { DynamicComponentService } from "@fundamental-ngx/cdk/utils";
+import { ApplicationConfig } from '@angular/core';
+import { DynamicComponentService } from '@fundamental-ngx/cdk/utils';
+import { provideTheming } from '@fundamental-ngx/core/theming';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        importProvidersFrom(
-            ThemingModule.withConfig({ defaultTheme: 'sap_horizon', changeThemeOnQueryParamChange: false })
-        ),
+        provideTheming({
+            defaultTheme: 'sap_horizon',
+            changeThemeOnQueryParamChange: false
+        }),
         DynamicComponentService
     ]
 };

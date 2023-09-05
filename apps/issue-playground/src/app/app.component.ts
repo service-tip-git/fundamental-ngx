@@ -1,22 +1,23 @@
 import { Component, inject } from '@angular/core';
-import { ThemingService } from "@fundamental-ngx/core/theming";
+import { ThemingService } from '@fundamental-ngx/core/theming';
 
-import { BaseDataProvider, MultiComboBoxDataSource } from '@fundamental-ngx/platform/shared';
-import { FormFieldComponent, FormGroupComponent, MultiComboboxComponent, MultiComboboxSelectionChangeEvent } from '@fundamental-ngx/platform/form';
-import { map, Observable, of } from 'rxjs';
-import { JsonPipe } from "@angular/common";
+import { JsonPipe } from '@angular/common';
+import {
+    FormFieldComponent,
+    FormGroupComponent,
+    MultiComboboxComponent,
+    MultiComboboxSelectionChangeEvent
+} from '@fundamental-ngx/platform/form';
+import { BaseDataProvider, DATA_PROVIDERS, MultiComboBoxDataSource } from '@fundamental-ngx/platform/shared';
+import { Observable, map, of } from 'rxjs';
 
 @Component({
     standalone: true,
-    imports: [
-        MultiComboboxComponent,
-        JsonPipe,
-        FormFieldComponent,
-        FormGroupComponent
-    ],
+    imports: [MultiComboboxComponent, JsonPipe, FormFieldComponent, FormGroupComponent],
     selector: 'fundamental-ngx-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    providers: [{ provide: DATA_PROVIDERS, useValue: new Map() }]
 })
 export class AppComponent {
     themingService = inject(ThemingService);
@@ -51,28 +52,25 @@ export class AppComponent {
         { id: '28', name: 'Ford', type: 'Cars' }
     ];
 
-    selectedItems2 = [];
-
-    DataSource1 = new MultiComboBoxDataSource(new BaseDataProviderCustom(this.dataSource));
-
     constructor() {
         this.themingService.init();
     }
 
+    selectedItems2 = [{ id: '25', name: 'Tesla', type: 'Cars' }];
+
+    DataSource1 = new MultiComboBoxDataSource(new BaseDataProviderCustom(this.dataSource));
+
     onSelect2(item: MultiComboboxSelectionChangeEvent): void {
         this.selectedItems2 = item.selectedItems;
     }
-
 }
 
 class BaseDataProviderCustom extends BaseDataProvider<any> {
     private valueSet;
-
     constructor(protected override values: any[]) {
         super(values.slice(0, 10));
         this.valueSet = values;
     }
-
 
     // Below fetch is just an exmaple to reproduce the issue
     // but ideally the fetch method will make a API call to the
@@ -94,7 +92,10 @@ class BaseDataProviderCustom extends BaseDataProvider<any> {
                 const result: any[] = [];
                 for (let i = 0; i < items.length; i++) {
                     const item = items[i];
-                    if (item.id.toLowerCase().includes(toLowerPattern) || item.name.toLowerCase().includes(toLowerPattern)) {
+                    if (
+                        item.id.toLowerCase().includes(toLowerPattern) ||
+                        item.name.toLowerCase().includes(toLowerPattern)
+                    ) {
                         result.push(item);
                         if (result.length >= limit) {
                             break;

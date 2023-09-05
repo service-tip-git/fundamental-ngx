@@ -1,6 +1,5 @@
-<p>Hello Multi Combo Box</p>
 <fdp-form-group [noLabelLayout]="false">
-    <fdp-form-field>
+    <fdp-form-field id="array-of-strings" label="Array of Strings">
         <fdp-multi-combobox
             [autoResize]="true"
             name="array-of-objects"
@@ -11,6 +10,6 @@
             [selectedItems]="selectedItems2"
             (selectionChange)="onSelect2($event)"
         ></fdp-multi-combobox>
+        <p>Selected: {{ selectedItems2 | json }}</p>
     </fdp-form-field>
 </fdp-form-group>
-<p>Selected: {{ selectedItems2 | json }}</p>
