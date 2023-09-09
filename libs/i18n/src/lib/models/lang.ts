@@ -646,6 +646,14 @@ export interface FdLanguage {
         messageFileRenameSuccess: FdLanguageKey;
         /**
          * @param foldersCount
+         */
+        folderNamePluralization?: FdLanguageKey;
+        /**
+         * @param filesCount
+         */
+        fileNamePluralization?: FdLanguageKey;
+        /**
+         * @param foldersCount
          * @param filesCount
          */
         messageRemoveFoldersAndFilesFailed: FdLanguageKey;
