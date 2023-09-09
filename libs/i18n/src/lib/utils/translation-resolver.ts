@@ -8,6 +8,9 @@ export class TranslationResolver {
     /** @hidden */
     private readonly _curlyBracesRegExp = /{{\s*([^{}\s]*)\s*}}/g;
 
+    /** @hidden */
+    private readonly _internalReferenceRegExp = /\{ ?@@\s*([^{}\s]*)\s* ?}/g;
+
     /** Resolves the translation for the provided language by key and args */
     resolve(lang: FdLanguage, key: FdLanguageKey, args?: FdLanguageKeyArgs): string {
         const resolvedValue = this._getFdLanguageKeyValue(lang, key, args);
