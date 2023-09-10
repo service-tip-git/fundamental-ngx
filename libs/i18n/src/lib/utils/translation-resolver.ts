@@ -1,5 +1,5 @@
 import { isDevMode } from '@angular/core';
-import { get } from 'lodash-es';
+// import { get } from 'lodash-es';
 import { FD_LANGUAGE_ENGLISH } from '../languages';
 import { FdLanguage, FdLanguageKey, FdLanguageKeyArgs, FdLanguageKeyFunction } from '../models';
 
@@ -56,15 +56,16 @@ export class TranslationResolver {
 
     /** @hidden */
     private _tryResolveKey(lang: FdLanguage, path: any): FdLanguageKey | null {
-        try {
-            const expression: FdLanguageKey = get(lang, path);
-            if (typeof expression === 'function') {
-                return expression;
-            }
-            return expression?.toString() ?? null;
-        } catch {
-            return null;
-        }
+        // try {
+        //     const expression: FdLanguageKey = get(lang, path);
+        //     if (typeof expression === 'function') {
+        //         return expression;
+        //     }
+        //     return expression?.toString() ?? null;
+        // } catch {
+        //     return null;
+        // }
+        return null;
     }
 
     /** @hidden */

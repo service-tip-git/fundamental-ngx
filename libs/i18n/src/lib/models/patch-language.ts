@@ -1,3 +1,3 @@
-import { FdLanguage } from './lang';
+import { LocaleTranslations } from '../translation.data';
 
-export type FdLanguagePatch = { [K in keyof FdLanguage]?: Partial<FdLanguage[K]> };
+export type FdLanguagePatch = LocaleTranslations;
