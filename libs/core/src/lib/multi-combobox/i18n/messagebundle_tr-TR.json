@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Hepsini seç ({selectedItems}/{totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Seçenekler'i seçin",
+    "coreMultiCombobox.inputIconTitle": "Seçenekler'i seçin",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Tüm eşyayılar göster",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Seçili eşyayılar göster"
+}

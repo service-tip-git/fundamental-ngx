@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "დროის ველი",
+    "coreTime.increaseHoursLabel": "საათის გაზრდა",
+    "coreTime.hoursLabel": "სთ",
+    "coreTime.decreaseHoursLabel": "საათის შემცირება",
+    "coreTime.increaseMinutesLabel": "წუთის გაზრდა",
+    "coreTime.minutesLabel": "წთ",
+    "coreTime.decreaseMinutesLabel": "წუთის შემცირება",
+    "coreTime.increaseSecondsLabel": "წამის გაზრდა",
+    "coreTime.secondsLabel": "წმ",
+    "coreTime.decreaseSecondsLabel": "წამის შემცირება",
+    "coreTime.increasePeriodLabel": "პერიოდის გაზრდა",
+    "coreTime.periodLabel": "პერიოდი",
+    "coreTime.decreasePeriodLabel": "პერიოდის შემცირება",
+    "coreTime.navigationInstruction": "სიაში სამოძრაოდ დააჭირეთ ზედა და ქვედა ღილაკებს. სიებს შორის სამოძრაოდ - მარჯვენა და მარცხენა ღილაკებს."
+}

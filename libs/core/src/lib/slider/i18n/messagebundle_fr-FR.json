@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "La valeur minimale du curseur est {min}, la valeur maximale est {max}",
+    "coreSlider.singleValueminDetails": "La valeur est {value}",
+    "coreSlider.singleValuemaxDetails": "La valeur est {value}",
+    "coreSlider.singleValueNowDetails": "La valeur actuelle est {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "La valeur minimale du curseur est {min}, la valeur maximale est {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "La valeur est {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "La valeur est {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "La valeur actuelle est {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "La valeur minimale du curseur est {min}, la valeur maximale est {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "La valeur est {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "La valeur est {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "La valeur actuelle est {value}"
+}

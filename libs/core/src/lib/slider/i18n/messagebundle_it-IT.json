@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Il valore minimo del dispositivo di scorrimento è {minimo}, il valore massimo è {max}",
+    "coreSlider.singleValueminDetails": "Il valore è {value}",
+    "coreSlider.singleValuemaxDetails": "Il valore è {value}",
+    "coreSlider.singleValueNowDetails": "Il valore attuale è {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Il valore minimo del dispositivo di scorrimento dell'intervallo è {min}, il valore massimo è {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Il valore è {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Il valore è {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Il valore attuale è {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Il valore minimo del dispositivo di scorrimento dell'intervallo è {min}, il valore massimo è {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Il valore è {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Il valore è {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Il valore attuale è {value}"
+}

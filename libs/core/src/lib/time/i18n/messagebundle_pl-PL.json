@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Selector godziny",
+    "coreTime.increaseHoursLabel": "Zwiększ godzinę",
+    "coreTime.hoursLabel": "Godz.",
+    "coreTime.decreaseHoursLabel": "Zmniejsz godzinę",
+    "coreTime.increaseMinutesLabel": "Zwiększ minuty",
+    "coreTime.minutesLabel": "Min",
+    "coreTime.decreaseMinutesLabel": "Zmniejsz minuty",
+    "coreTime.increaseSecondsLabel": "Zwiększ sekundy",
+    "coreTime.secondsLabel": "Sec",
+    "coreTime.decreaseSecondsLabel": "Zmniejsz sekundy",
+    "coreTime.increasePeriodLabel": "Zwiększ zakres",
+    "coreTime.periodLabel": "Zakres",
+    "coreTime.decreasePeriodLabel": "Zmniejsz zakres",
+    "coreTime.navigationInstruction": "Uzyj strzałek góra/dół żeby przechodzić pomiędzy elementami listy. Naciśnij strzłki w lewo/prawo żeby przełączyć się pomiędzy listami."
+}

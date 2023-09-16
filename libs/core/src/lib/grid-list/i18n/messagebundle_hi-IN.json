@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "रद्द करें",
+    "coreGridList.listItemStatusAriaLabel": "वस्तु की स्थिति है। स्थिति: {status}",
+    "coreGridList.listItemCounterAriaLabel": "वस्तु के {count} उपसूची है।",
+    "coreGridList.listItemButtonDetailsTitle": "विवरण",
+    "coreGridList.listItemButtonDeleteTitle": "मिटायें",
+    "coreGridList.listItemStatusContainsErrors": "इसमें गलतियां हैं",
+    "coreGridList.listItemStatusLocked": "बंद",
+    "coreGridList.listItemStatusDraft": "प्रालेख"
+}

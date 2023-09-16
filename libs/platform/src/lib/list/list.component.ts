@@ -23,7 +23,7 @@ import {
     SkipSelf,
     ViewChild,
     ViewEncapsulation,
-    forwardRef
+    forwardRef, inject
 } from '@angular/core';
 import { ControlContainer, NgControl, NgForm } from '@angular/forms';
 import { FD_FORM_FIELD, FD_FORM_FIELD_CONTROL } from '@fundamental-ngx/cdk/forms';
@@ -34,7 +34,6 @@ import {
     Subscription,
     asyncScheduler,
     filter,
-    firstValueFrom,
     isObservable,
     map,
     observeOn,
@@ -46,7 +45,7 @@ import { delay, takeUntil, tap } from 'rxjs/operators';
 
 import { KeyUtil, Nullable } from '@fundamental-ngx/cdk/utils';
 import { FD_LIST_UNREAD_INDICATOR, ListUnreadIndicator } from '@fundamental-ngx/core/list';
-import { FD_LANGUAGE, FdLanguage, TranslationResolver } from '@fundamental-ngx/i18n';
+import { provideDefaultTranslations, TranslationService } from '@fundamental-ngx/i18n';
 import {
     ArrayListDataSource,
     CollectionBaseInput,
@@ -89,7 +88,8 @@ let nextListId = 0;
         {
             provide: FD_LIST_UNREAD_INDICATOR,
             useExisting: ListComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         '[attr.tabindex]': '-1'
@@ -315,8 +315,14 @@ export class ListComponent<T>
     /** @hidden */
     protected _dataSource: FdpListDataSource<T>;
 
+    /**
+     * @hidden
+     * Verfies partial navigation enabled
+     */
+    protected _partialNavigation = false;
+
     /** @hidden */
-    private _translationResolver = new TranslationResolver();
+    private _translationService = inject(TranslationService);
 
     /**
      * @hidden
@@ -344,12 +350,6 @@ export class ListComponent<T>
      * Whether object present in list item
      */
     private _hasObject: boolean;
-
-    /**
-     * @hidden
-     * Verfies partial navigation enabled
-     */
-    protected _partialNavigation = false;
 
     /**
      * @hidden
@@ -392,8 +392,6 @@ export class ListComponent<T>
      */
     private _dsSubscription: Nullable<Subscription>;
 
-    /** @hidden */
-    private _language: FdLanguage;
 
     /** @hidden */
     private _afterViewInit$ = new BehaviorSubject(false);
@@ -403,7 +401,6 @@ export class ListComponent<T>
         protected _changeDetectorRef: ChangeDetectorRef,
         elementRef: ElementRef,
         private _liveAnnouncer: LiveAnnouncer,
-        @Inject(FD_LANGUAGE) private readonly _language$: Observable<FdLanguage>,
         @Optional() @Self() public ngControl: NgControl,
         @Optional() @Self() public controlContainer: ControlContainer,
         @Optional() @Self() public ngForm: NgForm,
@@ -412,12 +409,6 @@ export class ListComponent<T>
         protected _listConfig?: ListConfig
     ) {
         super(_changeDetectorRef, elementRef, ngControl, controlContainer, ngForm, formField, formControl);
-        this._init();
-    }
-
-    /** @hidden */
-    private async _init(): Promise<void> {
-        this._language = await firstValueFrom(this._language$);
     }
 
     /** Get context for load more button */
@@ -427,9 +418,8 @@ export class ListComponent<T>
             loading: this._loading,
             loadingLabel: (() => {
                 if (this._loading) {
-                    return this._language$.pipe(
-                        map((language) => this._translationResolver.resolve(language, 'platformList.loadingAriaLabel'))
-                    );
+                    return this._translationService
+                        .translate$('platformList.loadingAriaLabel');
                 }
                 return of(this.loadingLabel);
             })(),
@@ -570,11 +560,8 @@ export class ListComponent<T>
                     if (isBlank(data)) {
                         console.error('===Invalid Response received===');
                     }
-                    this.loadingLabel = this._translationResolver.resolve(
-                        this._language,
-                        'platformList.loadingAriaLabel'
-                    );
-                    await this._liveAnnouncer.announce(this.loadingLabel, 'assertive');
+                    const loadingLabel = this.loadingLabel || this._translationService.translate('platformList.loadingAriaLabel');
+                    await this._liveAnnouncer.announce(loadingLabel, 'assertive');
                 }),
                 delay(this.delayTime),
                 takeUntil(this._destroyed)

@@ -2,16 +2,16 @@ import { FdLanguageKeyArgs } from '../models';
 import { TranslationResolver } from './translation-resolver';
 
 describe('TranslationResolver', () => {
-    class TestTranslatioResolver extends TranslationResolver {
+    class TestTranslationResolver extends TranslationResolver {
         // wrapper for internal "_interpolate" method
         testInterpolate(expression: string, args?: FdLanguageKeyArgs): string {
             return super._interpolate(expression, args);
         }
     }
 
-    let resolver: TestTranslatioResolver;
+    let resolver: TestTranslationResolver;
     beforeEach(() => {
-        resolver = new TestTranslatioResolver();
+        resolver = new TestTranslationResolver();
     });
 
     const cases: [unprocessed: string, args: Record<string, any> | undefined, result: string][] = [

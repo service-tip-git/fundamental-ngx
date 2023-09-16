@@ -1,0 +1,23 @@
+{
+    "platformVariantManagement.manage": "Управление",
+    "platformVariantManagement.saveAs": "Сохранить как",
+    "platformVariantManagement.saveView": "Сохранить Вид",
+    "platformVariantManagement.save": "Сохранить",
+    "platformVariantManagement.myViews": "Мои Виды",
+    "platformVariantManagement.view": "Вид",
+    "platformVariantManagement.setAsDefault": "Установить по умолчанию",
+    "platformVariantManagement.public": "Публичный",
+    "platformVariantManagement.applyAutomatically": "Применять автоматически",
+    "platformVariantManagement.requiredFieldError": "Обязательное поле.",
+    "platformVariantManagement.nameTakenFieldError": "Вид с таким именем уже существует. Введите другое имя.",
+    "platformVariantManagement.cancel": "Отменить",
+    "platformVariantManagement.manageViews": "Управление видами",
+    "platformVariantManagement.markAsFavourite": "Отметить как избранное",
+    "platformVariantManagement.sharing": "Совместное использование",
+    "platformVariantManagement.default": "По умолчанию",
+    "platformVariantManagement.createdBy": "Создал(а)",
+    "platformVariantManagement.removeVariant": "Удалить вид",
+    "platformVariantManagement.search": "Поиск",
+    "platformVariantManagement.access.public": "Публичное",
+    "platformVariantManagement.access.private": "Приватное"
+}

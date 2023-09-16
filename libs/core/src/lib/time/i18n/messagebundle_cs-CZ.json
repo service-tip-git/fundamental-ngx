@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Time picker",
+    "coreTime.increaseHoursLabel": "Zvyšit hodiny",
+    "coreTime.hoursLabel": "Hod",
+    "coreTime.decreaseHoursLabel": "Snížit hodiny",
+    "coreTime.increaseMinutesLabel": "Zvyšit minuty",
+    "coreTime.minutesLabel": "Min",
+    "coreTime.decreaseMinutesLabel": "Snížit minuty",
+    "coreTime.increaseSecondsLabel": "Zvyšit sekundy",
+    "coreTime.secondsLabel": "Sec",
+    "coreTime.decreaseSecondsLabel": "Snížit sekundy",
+    "coreTime.increasePeriodLabel": "Zvýšit období",
+    "coreTime.periodLabel": "Období",
+    "coreTime.decreasePeriodLabel": "Snížit období",
+    "coreTime.navigationInstruction": "Chcete-li se pohybovat mezi položkami v tomto seznamu, stiskněte horní nebo dolní šipku. Pro přepínání mezi seznamy stiskněte levou nebo pravou šipku."
+}

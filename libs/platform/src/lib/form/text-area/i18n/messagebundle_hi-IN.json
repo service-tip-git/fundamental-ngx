@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 सीमा से अधिक चरित्र",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count} सीमा से अधिक वर्ण",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "1 चरित्र शेष",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "{count} शेष वर्ण"
+}

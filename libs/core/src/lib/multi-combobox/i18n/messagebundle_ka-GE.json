@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "ყველას არჩევა ({selectedItems} {totalItems}-დან)",
+    "coreMultiCombobox.inputGlyphAriaLabel": "აირჩიეთ ოფციები",
+    "coreMultiCombobox.inputIconTitle": "აირჩიეთ ოფციები",
+    "coreMultiCombobox.mobileShowAllItemsButton": "მაჩვენე ყველა",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "მაჩვენე არჩეული"
+}

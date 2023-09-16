@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 karakter sınırın üzerinde",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count}  karakter sınırı aşıyor",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "1 karakter kaldı",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "{count}  karakterler kaldı"
+}

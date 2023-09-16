@@ -1,8 +1,7 @@
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component,
-    Inject,
+    Component, inject,
     QueryList,
     ViewChildren,
     ViewEncapsulation
@@ -16,8 +15,7 @@ import { SmartFilterBarCondition, SmartFilterBarConditionBuilder } from '../../i
 import { SmartFilterBarService } from '../../smart-filter-bar.service';
 import { getSelectItemValue } from '../../helpers';
 import { SmartFilterBarStrategyLabels } from '../../interfaces/strategy-labels.type';
-import { FdLanguage, FD_LANGUAGE, TranslationResolver } from '@fundamental-ngx/i18n';
-import { firstValueFrom, Observable } from 'rxjs';
+import { TranslationService } from '@fundamental-ngx/i18n';
 
 @Component({
     selector: 'fdp-smart-filter-bar-conditions-dialog',
@@ -65,15 +63,11 @@ export class SmartFilterBarConditionsDialogComponent {
     private _submittedForms: any[] = [];
 
     /** @hidden */
-    private _language: FdLanguage;
-
-    /** @hidden */
-    private _translationResolver = new TranslationResolver();
+    private _translationService = inject(TranslationService);
 
     /** @hidden */
     constructor(
         private _dialogRef: DialogRef<SmartFilterBarConditionBuilder, SmartFilterBarCondition[]>,
-        @Inject(FD_LANGUAGE) private readonly _language$: Observable<FdLanguage>,
         private readonly _cdr: ChangeDetectorRef,
         private _smartFilterBarService: SmartFilterBarService
     ) {
@@ -84,7 +78,6 @@ export class SmartFilterBarConditionsDialogComponent {
     private async _init(): Promise<void> {
         this.config = this._dialogRef.data;
 
-        this._language = await firstValueFrom(this._language$);
         this.conditionOperatorOptions = await this._getApplicableConditionOperators();
 
         this._addExistingConditions(getSelectItemValue(this.config.conditions));
@@ -168,8 +161,7 @@ export class SmartFilterBarConditionsDialogComponent {
         for (const strategyItem in labelsConfig) {
             if (Object.prototype.hasOwnProperty.call(labelsConfig, strategyItem)) {
                 const translationKey = labelsConfig[strategyItem];
-                labelsConfig[strategyItem] = this._translationResolver.resolve(
-                    this._language,
+                labelsConfig[strategyItem] = this._translationService.translate(
                     'platformSmartFilterBar.' + translationKey
                 );
             }
@@ -217,8 +209,7 @@ export class SmartFilterBarConditionsDialogComponent {
                 default: condition?.value,
                 type: this.config.filterType,
                 choices: this.config.choices,
-                placeholder: this._translationResolver.resolve(
-                    this._language,
+                placeholder: this._translationService.translate(
                     'platformSmartFilterBar.filterConditionValuePlaceholder'
                 ),
                 controlType: this.config.controlType,
@@ -238,8 +229,7 @@ export class SmartFilterBarConditionsDialogComponent {
                 default: condition?.value,
                 type: this.config.filterType,
                 choices: this.config.choices,
-                placeholder: this._translationResolver.resolve(
-                    this._language,
+                placeholder: this._translationService.translate(
                     'platformSmartFilterBar.filterConditionValueFromPlaceholder'
                 ),
                 controlType: this.config.controlType,
@@ -259,8 +249,7 @@ export class SmartFilterBarConditionsDialogComponent {
                 default: condition?.value2,
                 type: this.config.filterType,
                 choices: this.config.choices,
-                placeholder: this._translationResolver.resolve(
-                    this._language,
+                placeholder: this._translationService.translate(
                     'platformSmartFilterBar.filterConditionValueToPlaceholder'
                 ),
                 required: true,

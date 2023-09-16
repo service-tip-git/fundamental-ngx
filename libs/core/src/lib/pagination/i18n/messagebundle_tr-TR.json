@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Sayfa {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Sayfa {pageNumber} geçerli sayfadır",
+    "corePagination.labelBeforeInputMobile": "Sayfa:",
+    "corePagination.labelAfterInputMobile": "of {totalCount}",
+    "corePagination.inputAriaLabel": "Sayfa girişi, Geçerli sayfa, Sayfa {pageNumber} / {totalCount}",
+    "corePagination.itemsPerPageLabel": "Sayfa Başına Sonuçlar:",
+    "corePagination.firstLabel": "İlk",
+    "corePagination.previousLabel": "Önceki",
+    "corePagination.nextLabel": "Sonraki",
+    "corePagination.lastLabel": "Son",
+    "corePagination.ariaLabel": "Sayfalandırma",
+    "corePagination.totalResultsLabel": "{totalCount} Sonuçlar"
+}

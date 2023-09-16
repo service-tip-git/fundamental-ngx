@@ -2,13 +2,12 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component,
-    Inject,
+    Component, inject,
     OnDestroy,
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import { asyncScheduler, BehaviorSubject, firstValueFrom, Observable, Subject, Subscription } from 'rxjs';
+import { asyncScheduler, BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { observeOn, takeUntil } from 'rxjs/operators';
 
 import { DialogRef } from '@fundamental-ngx/core/dialog';
@@ -26,7 +25,7 @@ import { SmartFilterBarFieldDefinition } from '../../interfaces/smart-filter-bar
 import { SmartFilterSettingsDialogConfig } from '../../interfaces/smart-filter-bar-settings-dialog-config';
 import { FieldFilterItem } from '../../interfaces/smart-filter-bar-field-filter-item';
 import { SmartFilterBarOptionsDataProvider } from './data-provider';
-import { FD_LANGUAGE, FdLanguage, TranslationResolver } from '@fundamental-ngx/i18n';
+import { TranslationService } from '@fundamental-ngx/i18n';
 import { SmartFilterBarVisibilityCategoryLabels } from '../../interfaces/smart-filter-bar-visibility-category';
 
 @Component({
@@ -84,12 +83,11 @@ export class SmartFilterBarSettingsDialogComponent implements Resettable, AfterV
     private _isResetAvailableSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     /** @hidden */
-    private readonly _translationResolver = new TranslationResolver();
+    private readonly _translationService = inject(TranslationService);
 
     /** @hidden */
     constructor(
         private _dialogRef: DialogRef<SmartFilterSettingsDialogConfig, string[]>,
-        @Inject(FD_LANGUAGE) private readonly _language$: Observable<FdLanguage>,
         private readonly _cdr: ChangeDetectorRef
     ) {
         this.isResetAvailable$ = this._isResetAvailableSubject$.asObservable();
@@ -186,14 +184,12 @@ export class SmartFilterBarSettingsDialogComponent implements Resettable, AfterV
     /**
      * Transforms visibility options into appropriate select item object.
      */
-    private async _transformVisibilityLabels(): Promise<void> {
-        const lang = await firstValueFrom(this._language$);
+    private _transformVisibilityLabels(): void {
         const labels = { ...this._categoryLabelKeys };
         for (const strategyItem in labels) {
             if (Object.prototype.hasOwnProperty.call(labels, strategyItem)) {
                 const translationKey = labels[strategyItem];
-                labels[strategyItem] = this._translationResolver.resolve(
-                    lang,
+                labels[strategyItem] = this._translationService.translate(
                     'platformSmartFilterBar.' + translationKey
                 );
             }

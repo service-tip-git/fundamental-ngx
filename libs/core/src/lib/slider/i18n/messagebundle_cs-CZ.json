@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Minimální hodnota posuvníku je {min}, maximální hodnota je {max}",
+    "coreSlider.singleValueminDetails": "Hodnota je {value}",
+    "coreSlider.singleValuemaxDetails": "Hodnota je {value}",
+    "coreSlider.singleValueNowDetails": "Aktuální hodnota je {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Minimální hodnota posuvníku rozsahu je {min}, maximální hodnota je {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Hodnota je {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Hodnota je {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Aktuální hodnota je {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Minimální hodnota posuvníku rozsahu je {min}, maximální hodnota je {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Hodnota je {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Hodnota je {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Aktuální hodnota je {value}"
+}

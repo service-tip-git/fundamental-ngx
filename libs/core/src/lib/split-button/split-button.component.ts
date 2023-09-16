@@ -27,6 +27,7 @@ import { SplitButtonActionTitle } from './split-button-utils/split-button.direct
 import { MainAction } from './main-action';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export const splitButtonTextClass = 'fd-button-split__text';
 const splitButtonTextClasses = [splitButtonTextClass];
@@ -58,7 +59,10 @@ const splitButtonTextClasses = [splitButtonTextClass];
     styleUrls: ['./split-button.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    providers: [contentDensityObserverProviders()]
+    providers: [
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class SplitButtonComponent implements AfterContentInit, OnChanges, OnDestroy, AfterViewInit {
     /** The icon to include in the button. See the icon page for the list of icons. */

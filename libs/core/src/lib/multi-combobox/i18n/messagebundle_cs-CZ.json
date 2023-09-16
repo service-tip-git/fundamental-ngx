@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Vybrat vše ({selectedItems} z {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Vyberte Možnosti",
+    "coreMultiCombobox.inputIconTitle": "Vyberte Možnosti",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Zobrazit všechny položky",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Zobrazit vybrané položky"
+}

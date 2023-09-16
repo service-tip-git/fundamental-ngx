@@ -49,7 +49,7 @@ import { InputGroupInputDirective, InputGroupModule } from '@fundamental-ngx/cor
 import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 import { PopoverModule, PopoverService } from '@fundamental-ngx/core/popover';
 import { Placement, SpecialDayRule } from '@fundamental-ngx/core/shared';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations, TranslationService } from '@fundamental-ngx/i18n';
 import { Subject, Subscription } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
 import { DatePickerMobileComponent } from './date-picker-mobile/date-picker-mobile.component';
@@ -96,7 +96,8 @@ let datePickerCounter = 0;
         registerFormItemControl(DatePickerComponent),
         PopoverFormMessageService,
         PopoverService,
-        DynamicComponentService
+        DynamicComponentService,
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -453,6 +454,8 @@ export class DatePickerComponent<D>
         // return either input value or a key for "fdTranslate" pipe
         return this.type === 'range' ? 'coreDatePicker.dateRangeInputLabel' : 'coreDatePicker.dateInputLabel';
     }
+
+    readonly translationService = inject(TranslationService);
 
     /** @hidden */
     constructor(

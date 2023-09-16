@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Slider minimum value is {min}, maximum value is {max}",
+    "coreSlider.singleValueminDetails": "Value is {value}",
+    "coreSlider.singleValuemaxDetails": "Value is {value}",
+    "coreSlider.singleValueNowDetails": "Current value is {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Range slider minimum value is {min}, maximum value is {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Value is {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Value is {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Current value is {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Range slider minimum value is {min}, maximum value is {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Value is {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Value is {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Current value is {value}"
+}

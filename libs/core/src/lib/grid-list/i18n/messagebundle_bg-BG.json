@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Отмени",
+    "coreGridList.listItemStatusAriaLabel": "Артикулът има статус. Статус: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Артикулът има { count, plural, one {1 дете} other {# деца} }.",
+    "coreGridList.listItemButtonDetailsTitle": "Подробности",
+    "coreGridList.listItemButtonDeleteTitle": "Изтрий",
+    "coreGridList.listItemStatusContainsErrors": "Съдържа грешки",
+    "coreGridList.listItemStatusLocked": "Заключен",
+    "coreGridList.listItemStatusDraft": "Чернова"
+}

@@ -27,6 +27,7 @@ import { Meridian, SelectableViewItem } from './models';
 import { createMissingDateImplementationError } from './errors';
 import { TimeColumnComponent } from './time-column/time-column.component';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export type FdTimeActiveView = 'hour' | 'minute' | 'second' | 'meridian';
 
@@ -49,7 +50,8 @@ type MeridianViewItem = SelectableViewItem<Meridian>;
             useExisting: forwardRef(() => TimeComponent),
             multi: true
         },
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None

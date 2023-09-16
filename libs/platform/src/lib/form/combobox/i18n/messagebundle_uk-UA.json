@@ -1,0 +1,4 @@
+{
+    "platformCombobox.countListResultsSingular": "1 елемент",
+    "platformCombobox.countListResultsPlural": "{ count, plural, one {1 елемент} few {# елементи} other {# елементів} }"
+}

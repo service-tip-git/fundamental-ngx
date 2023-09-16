@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Page {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Page {pageNumber} is current page",
+    "corePagination.labelBeforeInputMobile": "Page:",
+    "corePagination.labelAfterInputMobile": "of {totalCount}",
+    "corePagination.inputAriaLabel": "Page input, Current page, Page {pageNumber} of {totalCount}",
+    "corePagination.itemsPerPageLabel": "Results per Page:",
+    "corePagination.firstLabel": "First",
+    "corePagination.previousLabel": "Previous",
+    "corePagination.nextLabel": "Next",
+    "corePagination.lastLabel": "Last",
+    "corePagination.ariaLabel": "Pagination",
+    "corePagination.totalResultsLabel": "{totalCount} Results"
+}

@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "ОК",
+    "coreUploadCollection.menuCancelText": "Отменить",
+    "coreUploadCollection.menuEditAriaLabel": "Редактировать",
+    "coreUploadCollection.menuDeleteAriaLabel": "Удалить",
+    "coreUploadCollection.menuOkAriaLabel": "Редактировать",
+    "coreUploadCollection.menuCancelAriaLabel": "Отменить",
+    "coreUploadCollection.formItemPlaceholder": "Имя файла"
+}

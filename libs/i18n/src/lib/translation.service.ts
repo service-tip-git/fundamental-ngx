@@ -1,5 +1,5 @@
 /* eslint-disable jsdoc/require-jsdoc */
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, isDevMode } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IntlMessageFormat } from 'intl-messageformat';
 import { BehaviorSubject, combineLatest, map, Observable, of, switchMap, tap } from 'rxjs';
@@ -7,45 +7,79 @@ import { FdLanguageKeyArgs, FdLanguageKeyFunction } from './models';
 import {
     CanBeAsyncFactory,
     extractAsyncFactoryToObservable,
-    flattenTranslations,
-    LocaleTranslations,
+    flattenTranslations, LocaleTranslations,
+    replaceDoubleCurlyBraces,
     TranslationData
 } from './translation.data';
-import { DEFAULT_FD_TRANSLATIONS, FD_DEFAULT_LOCALE, FD_TRANSLATIONS } from './translation.tokens';
+import { DEFAULT_FD_TRANSLATIONS, FD_DEFAULT_LOCALE, FD_LOCALE_PATCHES, FD_TRANSLATIONS } from './translation.tokens';
+import { FD_LANGUAGE } from "./utils";
 
 const _internalReferenceRegExp = /\{ ?@@\s*([^{}\s]*)\s* ?}/g;
 
 @Injectable()
 export class TranslationService {
+    _locale$: BehaviorSubject<string>;
     private _translations = inject(FD_TRANSLATIONS);
     private _defaultTranslations = inject(DEFAULT_FD_TRANSLATIONS);
-    private _locale$ = new BehaviorSubject(inject(FD_DEFAULT_LOCALE));
+    private _deprecatedFdLanguage$ = inject(FD_LANGUAGE).pipe(
+        map(fdLanguage => flattenTranslations(fdLanguage as unknown as LocaleTranslations, null, replaceDoubleCurlyBraces))
+    );
     private _parentTranslationService: TranslationService | null = inject(TranslationService, {
         optional: true,
         skipSelf: true
     });
 
-    private _localeData$ = this._getFlatLocaleData(this._translations);
-    private _defaultLocaleData$ = this._getFlatLocaleData(this._defaultTranslations);
-    private _effectiveLocaleData$: Observable<Record<string, string>> = this._defaultLocaleData$.pipe(
-        switchMap((defaultLocaleData) =>
-            this._localeData$.pipe(map((localeData) => ({ ...defaultLocaleData, ...localeData })))
-        )
-    );
+    private _localeData$: Observable<Record<string, string | FdLanguageKeyFunction>>;
+    private _defaultLocaleData$: Observable<Record<string, string | FdLanguageKeyFunction>>;
 
-    private _localeData: Record<string, string> = {};
+    private _deprecatedFdLanguage: Record<string, string | FdLanguageKeyFunction> = {};
+
+    private _patches$ = inject(FD_LOCALE_PATCHES);
+
+    private _localeData: Record<string, string | FdLanguageKeyFunction> = {};
+    private _defaultLocaleData: Record<string, string | FdLanguageKeyFunction> = {};
+    private _flattenedPatches$ = this._patches$.pipe(
+        map((patches) => flattenTranslations(patches, null, replaceDoubleCurlyBraces))
+    )
+    patches: Record<string, string | FdLanguageKeyFunction> = {};
 
     constructor() {
-        this._effectiveLocaleData$
-            .pipe(
-                tap((r) => (this._localeData = r)),
-                takeUntilDestroyed()
-            )
-            .subscribe();
+        this._locale$ = this._parentTranslationService?._locale$ ?? new BehaviorSubject(inject(FD_DEFAULT_LOCALE));
+        this._localeData$ = this.extractLocaleData(this._translations);
+        this._defaultLocaleData$ = this.extractLocaleData(this._defaultTranslations);
+        combineLatest([
+            this._localeData$,
+            this._defaultLocaleData$,
+            this._deprecatedFdLanguage$,
+            this._flattenedPatches$
+        ])
+            .pipe(takeUntilDestroyed())
+            .subscribe(
+                ([localeData, defaultLocaleData, deprecatedFdLanguage, patches]) => {
+                    this._localeData = localeData;
+                    this._defaultLocaleData = defaultLocaleData;
+                    this._deprecatedFdLanguage = deprecatedFdLanguage;
+                    this.patches = patches;
+                }
+            );
+    }
+
+    patchLocale(patch: Record<string, string | FdLanguageKeyFunction>): void {
+        this._patches$.next(patch);
+    }
+
+    setLocale(locale: string): void {
+        if (this._parentTranslationService?.setLocale(locale)) {
+            return;
+        }
+        this._locale$.next(locale);
+    }
+
+    getLocale(): string {
+        return this._locale$.getValue();
     }
 
     translate(key: string, context: Record<string, any> = {}): string {
-        console.log(this);
         const raw = this.resolveRaw(key);
         const val = typeof raw === 'string' ? raw : raw(context);
         if (val.includes('{')) {
@@ -67,130 +101,147 @@ export class TranslationService {
     }
 
     resolveRaw(key: string): string | FdLanguageKeyFunction {
-        let val: string | FdLanguageKeyFunction = key;
-        if (!this._localeData) {
-            console.warn(`Translation data was not loaded yet and key "${key}" was requested`);
-            return key;
-        }
-        if (this._localeData[key]) {
-            val = this._localeData[key];
-        } else if (this._parentTranslationService) {
-            val = this._parentTranslationService.resolveRaw(key);
-        }
+        let val: string | FdLanguageKeyFunction = this._resolveRawLocally(
+            key,
+            {
+                patches: this.patches,
+                localeData: this._localeData,
+                defaultLocaleData: this._defaultLocaleData,
+                deprecatedFdLanguage: this._deprecatedFdLanguage
+            }
+        );
+        // Not found locally, try parent
         if (val === key) {
-            console.warn(`Translation key "${key}" not found`);
+            val = this._parentTranslationService?.resolveRaw(key) || val;
+            if (val === key && isDevMode()) {
+                console.warn(`Translation key "${key}" not found`);
+            }
         }
         if (typeof val !== 'string') {
             return val;
         }
         const internalReferences = val.match(_internalReferenceRegExp);
         if (internalReferences) {
-            const replacements = internalReferences.map((internalReference) => {
+            const replacements: Array<[string, string | FdLanguageKeyFunction]> = internalReferences.map((internalReference) => {
                 const internalReferenceKey = internalReference.replace(_internalReferenceRegExp, '$1');
                 const replacementValue = this.resolveRaw(internalReferenceKey);
                 return [internalReference, replacementValue];
-            }) as Array<[string, string | FdLanguageKeyFunction]>;
-            if (replacements.some((repl) => typeof repl[1] !== 'string')) {
-                return (ctx: FdLanguageKeyArgs) => {
-                    let returnVal = val as string;
-                    for (const [internalReference, replacementValue] of replacements) {
-                        if (typeof replacementValue === 'string') {
-                            returnVal = returnVal.split(internalReference).join(replacementValue);
-                        } else {
-                            returnVal = returnVal.replace(new RegExp(internalReference, 'g'), () =>
-                                replacementValue(ctx)
-                            );
-                        }
-                    }
-                    return returnVal;
-                };
-            }
-            (replacements as Array<[string, string]>).forEach(([internalReference, replacementValue]) => {
-                val = (val as string).split(internalReference).join(replacementValue);
             });
+            return this._getFinalRaw(val, replacements);
         }
         return val;
     }
 
     resolveRaw$(key: string): Observable<string | FdLanguageKeyFunction> {
-        return this._effectiveLocaleData$.pipe(
-            switchMap((localeData) => {
-                let val$: Observable<string | FdLanguageKeyFunction> = of(key);
-
-                if (localeData[key]) {
-                    val$ = of(localeData[key]);
-                } else if (this._parentTranslationService) {
-                    val$ = this._parentTranslationService.resolveRaw$(key);
-                }
-                return val$.pipe(
-                    tap((val) => val === key && console.warn(`Translation key "${key}" not found`)),
-                    switchMap((val) => {
-                        if (typeof val !== 'string') {
-                            return of(val);
-                        }
-                        const internalReferences = val.match(_internalReferenceRegExp);
-                        if (internalReferences) {
-                            return combineLatest(
-                                internalReferences.map((internalReference) => {
-                                    const internalReferenceKey = internalReference.replace(
-                                        _internalReferenceRegExp,
-                                        '$1'
-                                    );
-                                    return this.resolveRaw$(internalReferenceKey).pipe(
-                                        map((replacementValue) => [internalReference, replacementValue])
-                                    );
-                                }) as Observable<[string, string | FdLanguageKeyFunction]>[]
-                            ).pipe(
-                                map((replacements) => {
-                                    if (replacements.some((repl) => typeof repl[1] !== 'string')) {
-                                        return (ctx: FdLanguageKeyArgs) => {
-                                            let returnVal = val as string;
-                                            for (const [internalReference, replacementValue] of replacements) {
-                                                if (typeof replacementValue === 'string') {
-                                                    returnVal = returnVal
-                                                        .split(internalReference)
-                                                        .join(replacementValue);
-                                                } else {
-                                                    returnVal = returnVal.replace(
-                                                        new RegExp(internalReference, 'g'),
-                                                        () => replacementValue(ctx)
-                                                    );
-                                                }
-                                            }
-                                            return returnVal;
-                                        };
-                                    }
-                                    (replacements as Array<[string, string]>).forEach(
-                                        ([internalReference, replacementValue]) => {
-                                            val = (val as string).split(internalReference).join(replacementValue);
-                                        }
-                                    );
-                                    return val;
-                                })
-                            );
-                        }
-                        return of(val);
-                    })
+        return combineLatest([
+            this._flattenedPatches$,
+            this._localeData$,
+            this._defaultLocaleData$,
+            this._deprecatedFdLanguage$
+        ]).pipe(
+            switchMap(([patches, localeData, defaultLocaleData, deprecatedFdLanguage]) => {
+                let val: string | FdLanguageKeyFunction = this._resolveRawLocally(
+                    key,
+                    {
+                        patches,
+                        localeData,
+                        defaultLocaleData,
+                        deprecatedFdLanguage
+                    }
                 );
+                if (val !== key) {
+                    return of(val);
+                }
+                return this._parentTranslationService?.resolveRaw$(key) || of(val);
+            }),
+            tap((v) => {
+                if (v === key && isDevMode()) {
+                    console.warn(`Translation key "${key}" not found`);
+                }
+            }),
+            switchMap((val) => {
+                if (typeof val !== 'string') {
+                    return of(val);
+                }
+                const internalReferences = val.match(_internalReferenceRegExp);
+                if (internalReferences) {
+                    return combineLatest(
+                        internalReferences.map((internalReference) => {
+                            const internalReferenceKey = internalReference.replace(
+                                _internalReferenceRegExp,
+                                '$1'
+                            );
+                            return this.resolveRaw$(internalReferenceKey).pipe(
+                                map((replacementValue) => [internalReference, replacementValue])
+                            );
+                        }) as Observable<[string, string | FdLanguageKeyFunction]>[]
+                    ).pipe(
+                        map((replacements) => this._getFinalRaw(val, replacements))
+                    );
+                }
+                return of(val);
             })
-        );
+        )
     }
 
-    private _getLocaleTranslations = (
-        locale: string,
-        translations: CanBeAsyncFactory<TranslationData>
-    ): Observable<CanBeAsyncFactory<LocaleTranslations>> =>
-        extractAsyncFactoryToObservable(translations).pipe(map((translationData) => translationData[locale]));
+    private _resolveRawLocally(key: string, collections: {
+        patches: Record<string, string | FdLanguageKeyFunction>,
+        localeData: Record<string, string | FdLanguageKeyFunction>,
+        defaultLocaleData: Record<string, string | FdLanguageKeyFunction>,
+        deprecatedFdLanguage: Record<string, string | FdLanguageKeyFunction>
+    }): string | FdLanguageKeyFunction {
+        let val: string | FdLanguageKeyFunction = key;
+        if (collections.patches[key]) {
+            val = collections.patches[key];
+        } else if (collections.localeData[key]) {
+            val = collections.localeData[key];
+        } else if (collections.defaultLocaleData[key]) {
+            val = collections.defaultLocaleData[key];
+        } else if (collections.deprecatedFdLanguage[key]) {
+            if (isDevMode()) {
+                console.warn(`Translation key "${key}" was found in deprecated language object but not in the new one`);
+            }
+            val = collections.deprecatedFdLanguage[key];
+        }
+        return val;
+    }
 
-    private _getFlatLocaleData(_translations: CanBeAsyncFactory<TranslationData>): Observable<Record<string, string>> {
-        return this._locale$.pipe(
-            switchMap((locale) => this._getLocaleTranslations(locale, _translations)),
-            switchMap((localeTranslations) => extractAsyncFactoryToObservable(localeTranslations)),
-            map((t) => flattenTranslations(t))
-        );
+    private extractLocaleData(translationData: CanBeAsyncFactory<TranslationData>): Observable<Record<string, string | FdLanguageKeyFunction>> {
+        return extractAsyncFactoryToObservable(translationData)
+            .pipe(
+                switchMap((translationData) => this._locale$.pipe(
+                    switchMap((locale) => extractAsyncFactoryToObservable(translationData[locale] || {} as Record<string, string | FdLanguageKeyFunction>))
+                )),
+                map((localeData) => flattenTranslations(localeData))
+            )
     }
 
     private _interpolate(raw: string, context: Record<string, any>): string {
         return new IntlMessageFormat(raw, this._locale$.getValue()).format(context);
+    }
+
+    private _getFinalRaw(rawString: string, replacements: Array<[string, string | FdLanguageKeyFunction]> = []): string | FdLanguageKeyFunction {
+        if (replacements.some((repl) => typeof repl[1] !== 'string')) {
+            return (ctx: FdLanguageKeyArgs) => {
+                let returnVal = rawString;
+                for (const [internalReference, replacementValue] of replacements) {
+                    if (typeof replacementValue === 'string') {
+                        returnVal = returnVal
+                            .split(internalReference)
+                            .join(replacementValue);
+                    } else {
+                        returnVal = returnVal.replace(
+                            new RegExp(internalReference, 'g'),
+                            () => replacementValue(ctx)
+                        );
+                    }
+                }
+                return returnVal;
+            };
+        }
+        (replacements as Array<[string, string]>).forEach(([internalReference, replacementValue]) => {
+            rawString = rawString.split(internalReference).join(replacementValue);
+        });
+        return rawString;
     }
 }

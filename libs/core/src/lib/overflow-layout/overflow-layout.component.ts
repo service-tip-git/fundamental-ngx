@@ -35,6 +35,7 @@ import { FD_OVERFLOW_EXPAND } from './tokens/overflow-expand.token';
 import { FD_OVERFLOW_FOCUSABLE_ITEM } from './tokens/overflow-focusable-item.token';
 import { FD_OVERFLOW_ITEM_REF } from './tokens/overflow-item-ref.token';
 import { FocusKeyManager } from '@angular/cdk/a11y';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fd-overflow-layout',
@@ -47,7 +48,8 @@ import { FocusKeyManager } from '@angular/cdk/a11y';
             provide: FD_OVERFLOW_CONTAINER,
             useExisting: OverflowLayoutComponent
         },
-        OverflowLayoutService
+        OverflowLayoutService,
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class OverflowLayoutComponent implements OnInit, AfterViewInit, OnDestroy, OverflowContainer {

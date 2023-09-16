@@ -103,15 +103,6 @@
                 [fdMenuTrigger]="i18nMenu"
             ></button>
 
-            <fd-menu
-                #i18nMenu
-                [mobile]="true"
-                [fillControlMode]="null"
-                [mobileConfig]="{ title: 'Language', cancelButtonText: 'Cancel', dialogConfig: { mobile: false } }"
-            >
-                <ng-container *ngTemplateOutlet="i18nTemplate"></ng-container>
-            </fd-menu>
-
             <fd-menu #versionsMenu [fillControlMode]="null" placement="bottom-end">
                 <ng-container *ngTemplateOutlet="versionsTemplate"></ng-container>
             </fd-menu>
@@ -176,17 +167,28 @@
     </li>
 </ng-template>
 
-<ng-template #i18nTemplate>
+<fd-menu #i18nMenu>
     <li class="fd-docs--i18n-menu-tooltip" role="presentation" type="information">
         <fd-icon glyph="message-information"></fd-icon>
         <span>Only applies to internal component translations</span>
     </li>
-    <li fd-menu-item *ngFor="let translation of translations">
-        <div fd-menu-interactive (click)="selectTranslation(translation.value)">
+    <li fd-menu-item
+        fdMenuSegmentedButtonHeader
+        [ngModel]="selectedLocale"
+        (ngModelChange)="selectTranslation($event)">
+        <button fd-menu-interactive>
+            <fd-menu-addon position="before" glyph="sort"></fd-menu-addon>
+            <span fd-menu-title>Language</span>
+        </button>
+    </li>
+    <li fd-menu-item
+        fdMenuSegmentedButtonOption
+        [value]="translation.value" *ngFor="let translation of translations">
+        <div fd-menu-interactive>
             <span fd-menu-title>{{ translation.name }}</span>
         </div>
     </li>
-</ng-template>
+</fd-menu>
 
 <ng-template #densitiesTemplate>
     <li fd-menu-item>

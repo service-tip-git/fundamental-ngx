@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "साफ़ करें",
+    "platformSearchField.submitButtonTitle": "खोज करें",
+    "platformSearchField.searchInputLabel": "खोज करें",
+    "platformSearchField.synchronizeButtonTitle": "सिंक्रनाइज़ करें",
+    "platformSearchField.searchSuggestionMessage": "{count} सुझाव मिले",
+    "platformSearchField.searchSuggestionNavigateMessage": "नेविगेट करने के लिए ऊपर और नीचे तीरों का उपयोग करें"
+}

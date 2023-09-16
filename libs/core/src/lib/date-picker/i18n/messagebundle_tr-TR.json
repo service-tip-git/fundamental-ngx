@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Tarih girişi",
+    "coreDatePicker.dateRangeInputLabel": "Tarih aralığı girişi",
+    "coreDatePicker.displayCalendarToggleLabel": "Seçiciyi aç",
+    "coreDatePicker.valueStateSuccessMessage": "Değer durumu Başarılı",
+    "coreDatePicker.valueStateInformationMessage": "Değer durumu Bilgisi",
+    "coreDatePicker.valueStateWarningMessage": "Değer durumu Uyarısı",
+    "coreDatePicker.valueStateErrorMessage": "Değer durumu Hatası"
+}

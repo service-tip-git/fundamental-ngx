@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Вибрати все ({selectedItems} з {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Вибрати опції",
+    "coreMultiCombobox.inputIconTitle": "Вибрати опції",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Показати всі елементи",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Показати вибрані елементи"
+}

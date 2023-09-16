@@ -1,9 +1,22 @@
-import { FactoryProvider, SkipSelf } from '@angular/core';
+import { FactoryProvider, inject } from '@angular/core';
 import { cloneDeep, merge } from 'lodash-es';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { FdLanguage, FdLanguagePatch } from '../models';
-import { FD_LANGUAGE } from './tokens';
+import { BehaviorSubject } from 'rxjs';
+import { FdLanguagePatch } from '../models';
+import { FD_LOCALE_PATCHES } from "../translation.tokens";
+
+
+class LocalePatchBehaviorSubject extends BehaviorSubject<FdLanguagePatch> {
+    constructor(private parentPatch: BehaviorSubject<FdLanguagePatch>, patches: FdLanguagePatch = {}) {
+        super(parentPatch.value);
+        this.next(patches)
+    }
+
+    override next(value: FdLanguagePatch) {
+        super.next(
+            merge(cloneDeep(this.parentPatch.value), this.value, value)
+        );
+    }
+}
 
 /**
  * DI utility function, that allows to override `FD_LANGUAGE` injection token with part of the language object, that is used globally
@@ -37,16 +50,13 @@ import { FD_LANGUAGE } from './tokens';
  * ```
  */
 export function patchLanguage(
-    languagePatch: FdLanguagePatch | ((lang: FdLanguage) => FdLanguagePatch)
+    languagePatch: FdLanguagePatch
 ): FactoryProvider {
     return {
-        provide: FD_LANGUAGE,
-        useFactory: (lang$: Observable<FdLanguage>) =>
-            lang$.pipe(
-                map((lang) =>
-                    merge(cloneDeep(lang), typeof languagePatch === 'function' ? languagePatch(lang) : languagePatch)
-                )
-            ),
-        deps: [[new SkipSelf(), FD_LANGUAGE]]
+        provide: FD_LOCALE_PATCHES,
+        useFactory: () => {
+            const _parentPatches = inject(FD_LOCALE_PATCHES, { skipSelf: true, optional: true });
+            return new LocalePatchBehaviorSubject(_parentPatches || new BehaviorSubject({}), languagePatch);
+        }
     };
 }

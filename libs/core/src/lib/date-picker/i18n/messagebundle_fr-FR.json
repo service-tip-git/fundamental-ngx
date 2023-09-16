@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Sélecteur de date",
+    "coreDatePicker.dateRangeInputLabel": "Sélecteur de la plage de date",
+    "coreDatePicker.displayCalendarToggleLabel": "Ouvrir la sélection",
+    "coreDatePicker.valueStateSuccessMessage": "État de la valeur de Succès",
+    "coreDatePicker.valueStateInformationMessage": "État de la valeur d'Information",
+    "coreDatePicker.valueStateWarningMessage": "État de la valeur d'Avertissement",
+    "coreDatePicker.valueStateErrorMessage": "État de la valeur d'Erreur"
+}

@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Strana {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Stránka {pageNumber} je aktuální stránka",
+    "corePagination.labelBeforeInputMobile": "Strana:",
+    "corePagination.labelAfterInputMobile": "z {totalCount}",
+    "corePagination.inputAriaLabel": "Vstup stránky, aktuální stránka, stránka {pageNumber} z {totalCount}",
+    "corePagination.itemsPerPageLabel": "Výsledky na stránku:",
+    "corePagination.firstLabel": "První",
+    "corePagination.previousLabel": "Předchozí",
+    "corePagination.nextLabel": "Další",
+    "corePagination.lastLabel": "Poslední",
+    "corePagination.ariaLabel": "Stránkování",
+    "corePagination.totalResultsLabel": "{totalCount} Výsledky"
+}

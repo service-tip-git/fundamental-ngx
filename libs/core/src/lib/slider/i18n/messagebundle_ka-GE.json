@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "სლაიდერის მინიმალური მნიშვნელობაა {min}, მაქსიმუმი - {max}",
+    "coreSlider.singleValueminDetails": "მნიშვნელობაა {value}",
+    "coreSlider.singleValuemaxDetails": "მნიშვნელობაა {value}",
+    "coreSlider.singleValueNowDetails": "მიმდინარე მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "სლაიდერის მინიმალური მნიშვნელობაა {min}, მაქსიმუმი - {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "მიმდინარე მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "სლაიდერის მინიმალური მნიშვნელობაა {min}, მაქსიმუმი - {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "მნიშვნელობაა {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "მიმდინარე მნიშვნელობაა {value}"
+}

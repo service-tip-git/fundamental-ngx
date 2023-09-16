@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 სიმბოლო აღემატება ლიმიტს",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count} სიმბოლო აღემატება ლიმიტს",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "დარჩა 1 სიმბოლო",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "დარჩა {count} სიმბოლო"
+}

@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "Tamam",
+    "coreUploadCollection.menuCancelText": "İptal",
+    "coreUploadCollection.menuEditAriaLabel": "Düzenle",
+    "coreUploadCollection.menuDeleteAriaLabel": "Sil",
+    "coreUploadCollection.menuOkAriaLabel": "Düzenle",
+    "coreUploadCollection.menuCancelAriaLabel": "İptal",
+    "coreUploadCollection.formItemPlaceholder": "Dosya adı"
+}

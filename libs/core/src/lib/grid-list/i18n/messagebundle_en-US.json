@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Cancel",
+    "coreGridList.listItemStatusAriaLabel": "Item has status. Status: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Item has {count} children.",
+    "coreGridList.listItemButtonDetailsTitle": "Details",
+    "coreGridList.listItemButtonDeleteTitle": "Delete",
+    "coreGridList.listItemStatusContainsErrors": "Contains errors",
+    "coreGridList.listItemStatusLocked": "Locked",
+    "coreGridList.listItemStatusDraft": "Draft"
+}

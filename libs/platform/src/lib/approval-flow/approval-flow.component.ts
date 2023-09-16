@@ -80,6 +80,7 @@ import {
 } from '@fundamental-ngx/platform/shared';
 import { cloneDeep, uniqBy } from 'lodash-es';
 import { ObjectStatus } from '@fundamental-ngx/core/object-status';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let defaultId = 0;
 /**
@@ -91,7 +92,10 @@ let defaultId = 0;
     templateUrl: './approval-flow.component.html',
     styleUrls: ['./approval-flow.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class ApprovalFlowComponent implements OnInit, OnChanges, OnDestroy {
     /** Title which is displayed in the header of the Approval Flow component. */

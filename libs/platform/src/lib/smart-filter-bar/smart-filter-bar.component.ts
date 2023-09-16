@@ -50,6 +50,7 @@ import { SmartFilterBarConditionFieldComponent } from './components/smart-filter
 import { getSelectItemValue } from './helpers';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 const defaultColumnsLayout = 'XL4-L3-M2-S1';
 
@@ -90,7 +91,8 @@ const smartFilterBarProvider: Provider = {
         {
             provide: FDP_PRESET_MANAGED_COMPONENT,
             useExisting: SmartFilterBarComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         class: 'fdp-smart-filter-bar',

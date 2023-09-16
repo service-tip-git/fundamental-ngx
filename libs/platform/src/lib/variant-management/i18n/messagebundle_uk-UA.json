@@ -1,0 +1,23 @@
+{
+    "platformVariantManagement.manage": "Управління",
+    "platformVariantManagement.saveAs": "Зберегти як",
+    "platformVariantManagement.saveView": "Зберегти Вид",
+    "platformVariantManagement.save": "Зберегти",
+    "platformVariantManagement.myViews": "Мої Види",
+    "platformVariantManagement.view": "Вид",
+    "platformVariantManagement.setAsDefault": "Встановити за замовчуванням",
+    "platformVariantManagement.public": "Публічний",
+    "platformVariantManagement.applyAutomatically": "Застосовувати автоматично",
+    "platformVariantManagement.requiredFieldError": "Обов'язкове поле.",
+    "platformVariantManagement.nameTakenFieldError": "Вид з таким ім'ям вже існує. Введіть інше ім'я.",
+    "platformVariantManagement.cancel": "Скасувати",
+    "platformVariantManagement.manageViews": "Управління видами",
+    "platformVariantManagement.markAsFavourite": "Позначити як обране",
+    "platformVariantManagement.sharing": "Спільне використання",
+    "platformVariantManagement.default": "За замовчуванням",
+    "platformVariantManagement.createdBy": "Створив(ла)",
+    "platformVariantManagement.removeVariant": "Видалити вид",
+    "platformVariantManagement.search": "Пошук",
+    "platformVariantManagement.access.public": "Публічне",
+    "platformVariantManagement.access.private": "Приватне"
+}

@@ -20,7 +20,7 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { KeyUtil } from '@fundamental-ngx/cdk/utils';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { Subscription, fromEvent } from 'rxjs';
 
 /**
@@ -33,7 +33,10 @@ import { Subscription, fromEvent } from 'rxjs';
     styleUrls: ['./token.component.scss'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [contentDensityObserverProviders()],
+    providers: [
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ],
     host: {
         '[style.max-width.%]': '100'
     },

@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Скасувати",
+    "coreGridList.listItemStatusAriaLabel": "Елемент має статус. Статус: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Елемент має {count, plural, one {один дочірній елемент} few {# дочірніх елемента} other {# дочірніх елементів} }.",
+    "coreGridList.listItemButtonDetailsTitle": "Подробиці",
+    "coreGridList.listItemButtonDeleteTitle": "Видалити",
+    "coreGridList.listItemStatusContainsErrors": "Містить помилки",
+    "coreGridList.listItemStatusLocked": "Заблоковано",
+    "coreGridList.listItemStatusDraft": "Чернетка"
+}

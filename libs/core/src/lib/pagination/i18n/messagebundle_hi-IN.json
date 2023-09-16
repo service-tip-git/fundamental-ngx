@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "पृष्ठ {pageNumber}",
+    "corePagination.currentPageAriaLabel": "पृष्ठ {pageNumber} वर्तमान पृष्ठ है",
+    "corePagination.labelBeforeInputMobile": "पृष्ठ :",
+    "corePagination.labelAfterInputMobile": "का {totalCount}",
+    "corePagination.inputAriaLabel": "पेज इनपुट, वर्तमान पृष्ठ, पृष्ठ {pageNumber} का {totalCount}",
+    "corePagination.itemsPerPageLabel": "प्रति पृष्ठ परिणाम :",
+    "corePagination.firstLabel": "पहला",
+    "corePagination.previousLabel": "पिछला",
+    "corePagination.nextLabel": "अगला",
+    "corePagination.lastLabel": "अंतिम",
+    "corePagination.ariaLabel": "पृष्ठ अंकन",
+    "corePagination.totalResultsLabel": "{totalCount} परिणाम"
+}

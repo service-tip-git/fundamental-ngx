@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Поле ввода даты",
+    "coreDatePicker.dateRangeInputLabel": "Поле ввода диапазона дат",
+    "coreDatePicker.displayCalendarToggleLabel": "Открыть средство выбора",
+    "coreDatePicker.valueStateSuccessMessage": "Значение состояния: Успех",
+    "coreDatePicker.valueStateInformationMessage": "Значение состояния: Информационное",
+    "coreDatePicker.valueStateWarningMessage": "Значение состояния: Предупреждение",
+    "coreDatePicker.valueStateErrorMessage": "Значение состояния: Ошибка"
+}

@@ -19,13 +19,18 @@ import { NgIf } from '@angular/common';
 import { WizardModule } from '@fundamental-ngx/core/wizard';
 import { RepeatDirective } from '@fundamental-ngx/cdk/utils';
 import { SkeletonModule } from '@fundamental-ngx/core/skeleton';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fdp-wizard-generator',
     templateUrl: './wizard-generator.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [WizardGeneratorService, FormGeneratorService],
+    providers: [
+        WizardGeneratorService,
+        FormGeneratorService,
+        provideDefaultTranslations(() => import('../../i18n').then((m) => m.i18n))
+    ],
     standalone: true,
     imports: [NgIf, WizardBodyComponent, WizardModule, RepeatDirective, SkeletonModule]
 })

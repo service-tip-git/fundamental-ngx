@@ -26,7 +26,7 @@ import { TextAreaConfig } from './text-area.config';
 import { FD_FORM_FIELD, FD_FORM_FIELD_CONTROL } from '@fundamental-ngx/cdk/forms';
 import { NgIf } from '@angular/common';
 import { FormControlModule } from '@fundamental-ngx/core/form';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 
 const VALID_WRAP_TYPES = ['hard', 'soft', 'off'];
 
@@ -47,7 +47,8 @@ export type WrapType = 'hard' | 'soft' | 'off';
             provide: FD_FORM_FIELD_CONTROL,
             useExisting: TextAreaComponent,
             multi: true
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     standalone: true,
     imports: [FormControlModule, FormsModule, NgIf, FdTranslatePipe]

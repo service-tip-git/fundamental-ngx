@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Hyrja e datës",
+    "coreDatePicker.dateRangeInputLabel": "Hyrja e diapazonit të datave",
+    "coreDatePicker.displayCalendarToggleLabel": "Hap zgjedhës",
+    "coreDatePicker.valueStateSuccessMessage": "Suksesi i gjendjes së vlerës",
+    "coreDatePicker.valueStateInformationMessage": "Informacioni i gjendjes së vlerës",
+    "coreDatePicker.valueStateWarningMessage": "Paralajmërimi i gjendjes së vlerës",
+    "coreDatePicker.valueStateErrorMessage": "Gabim i gjendjes së vlerës"
+}

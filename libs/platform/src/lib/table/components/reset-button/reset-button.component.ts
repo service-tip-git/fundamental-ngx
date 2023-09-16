@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, InjectionToken, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 /**
  * Reset button.
@@ -25,7 +26,10 @@ export const RESETTABLE_TOKEN = new InjectionToken<Resettable>('Resettable');
         [disabled]="(resettable.isResetAvailable$ | async) === false"
     ></button>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        provideDefaultTranslations(() => import('../../i18n').then((m) => m.i18n)),
+    ]
 })
 export class ResetButtonComponent {
     /** @hidden */

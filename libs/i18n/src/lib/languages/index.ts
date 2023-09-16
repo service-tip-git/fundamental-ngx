@@ -12,18 +12,18 @@ export * from './russian';
 export * from './turkish';
 export * from './ukrainian';
 
-export const ngxLocaleToTranslations = {
-    'sq-AL': () => import('./albanian').then((m) => m.FD_LANGUAGE_ALBANIAN),
-    'bg-BG': () => import('./bulgarian').then((m) => m.FD_LANGUAGE_BULGARIAN),
-    'zh-CN': () => import('./chinese').then((m) => m.FD_LANGUAGE_CHINESE),
-    'cs-CZ': () => import('./czech').then((m) => m.FD_LANGUAGE_CZECH),
-    'en-US': () => import('./english').then((m) => m.FD_LANGUAGE_ENGLISH),
-    'fr-FR': () => import('./french').then((m) => m.FD_LANGUAGE_FRENCH),
-    'ka-GE': () => import('./georgian').then((m) => m.FD_LANGUAGE_GEORGIAN),
-    'hi-IN': () => import('./hindi').then((m) => m.FD_LANGUAGE_HINDI),
-    'it-IT': () => import('./italian').then((m) => m.FD_LANGUAGE_ITALIAN),
-    'pl-PL': () => import('./polish').then((m) => m.FD_LANGUAGE_POLISH),
-    'ru-RU': () => import('./russian').then((m) => m.FD_LANGUAGE_RUSSIAN),
-    'tr-TR': () => import('./turkish').then((m) => m.FD_LANGUAGE_TURKISH),
-    'uk-UA': () => import('./ukrainian').then((m) => m.FD_LANGUAGE_UKRAINIAN)
-};
+export const fdLanguageToLocaleName = {
+    'FD_LANGUAGE_ALBANIAN': 'sq-AL',
+    'FD_LANGUAGE_BULGARIAN': 'bg-BG',
+    'FD_LANGUAGE_CHINESE': 'zh-CN',
+    'FD_LANGUAGE_CZECH': 'cs-CZ',
+    'FD_LANGUAGE_ENGLISH': 'en-US',
+    'FD_LANGUAGE_FRENCH': 'fr-FR',
+    'FD_LANGUAGE_GEORGIAN': 'ka-GE',
+    'FD_LANGUAGE_HINDI': 'hi-IN',
+    'FD_LANGUAGE_ITALIAN': 'it-IT',
+    'FD_LANGUAGE_POLISH': 'pl-PL',
+    'FD_LANGUAGE_RUSSIAN': 'ru-RU',
+    'FD_LANGUAGE_TURKISH': 'tr-TR',
+    'FD_LANGUAGE_UKRAINIAN': 'uk-UA'
+}

@@ -9,6 +9,7 @@ import {
 import { Subject } from 'rxjs';
 
 import { SplitterSplitPaneComponent } from './splitter-split-pane/splitter-split-pane.component';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fd-splitter',
@@ -16,7 +17,10 @@ import { SplitterSplitPaneComponent } from './splitter-split-pane/splitter-split
     styleUrls: ['./splitter.component.scss'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: { class: 'fd-splitter' }
+    host: { class: 'fd-splitter' },
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class SplitterComponent {
     /** @hidden */

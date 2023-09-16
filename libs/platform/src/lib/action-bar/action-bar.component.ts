@@ -4,13 +4,17 @@ import { map } from 'rxjs/operators';
 
 import { RtlService, warnOnce } from '@fundamental-ngx/cdk/utils';
 import { BaseComponent } from '@fundamental-ngx/platform/shared';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 /**
  * @deprecated
  * Action Bar component is deprecated since version 0.40.0
  */
 @Component({
     selector: 'fdp-action-bar',
-    templateUrl: './action-bar.component.html'
+    templateUrl: './action-bar.component.html',
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class ActionBarComponent extends BaseComponent implements OnInit {
     /**

@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Страница {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Страница {pageNumber} активна",
+    "corePagination.labelBeforeInputMobile": "Страница:",
+    "corePagination.labelAfterInputMobile": "из {totalCount}",
+    "corePagination.inputAriaLabel": "Поле ввода страницы, Текущая страница, Страница {pageNumber} из {totalCount}",
+    "corePagination.itemsPerPageLabel": "Результатов на странице:",
+    "corePagination.firstLabel": "Перейти к первой",
+    "corePagination.previousLabel": "Перейти к предыдущей",
+    "corePagination.nextLabel": "Перейти к следующей",
+    "corePagination.lastLabel": "Перейти к последней",
+    "corePagination.ariaLabel": "Нумерация страниц",
+    "corePagination.totalResultsLabel": "{totalCount} результатов"
+}

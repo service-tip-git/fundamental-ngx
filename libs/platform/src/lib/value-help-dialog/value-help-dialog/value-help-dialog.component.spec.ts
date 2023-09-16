@@ -5,8 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RtlService } from '@fundamental-ngx/cdk/utils';
 import { PlatformValueHelpDialogComponent } from './value-help-dialog.component';
 import { PlatformValueHelpDialogModule } from '../value-help-dialog.module';
-import { FD_LANGUAGE, FD_LANGUAGE_ENGLISH } from '@fundamental-ngx/i18n';
-import { of } from 'rxjs';
+import { patchLanguage } from '@fundamental-ngx/i18n';
 
 @Component({
     template: `
@@ -42,17 +41,12 @@ import { of } from 'rxjs';
         </fdp-value-help-dialog>
     `,
     providers: [
-        {
-            provide: FD_LANGUAGE,
-            useValue: of({
-                ...FD_LANGUAGE_ENGLISH,
-                platformVHD: {
-                    ...FD_LANGUAGE_ENGLISH.platformVHD,
-                    selectTabTitle: 'Select from list',
-                    defineTabTitle: 'Define Conditions'
-                }
-            })
-        }
+        patchLanguage({
+            platformVHD: {
+                selectTabTitle: 'Select from list',
+                defineTabTitle: 'Define Conditions'
+            }
+        })
     ]
 })
 class TestWrapperComponent {

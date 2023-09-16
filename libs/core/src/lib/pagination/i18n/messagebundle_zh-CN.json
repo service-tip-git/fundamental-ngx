@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "第{pageNumber}页",
+    "corePagination.currentPageAriaLabel": "目前在第{pageNumber}页",
+    "corePagination.labelBeforeInputMobile": "页：",
+    "corePagination.labelAfterInputMobile": " / {totalCount}",
+    "corePagination.inputAriaLabel": "页输入，目前所在页，页 {pageNumber} / {totalCount}",
+    "corePagination.itemsPerPageLabel": "每页显示结果：",
+    "corePagination.firstLabel": "第一页",
+    "corePagination.previousLabel": "上一页",
+    "corePagination.nextLabel": "下一页",
+    "corePagination.lastLabel": "最后一页",
+    "corePagination.ariaLabel": "分页",
+    "corePagination.totalResultsLabel": "总共{totalCount}个结果"
+}

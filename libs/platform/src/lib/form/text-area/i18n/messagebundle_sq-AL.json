@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 karakter mbi limitin ",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count} karaktere mbi limitin",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "1 karakter i mbetur",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "{count} karaktere të mbetur"
+}

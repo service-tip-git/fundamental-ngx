@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "Изчисти",
+    "platformSearchField.submitButtonTitle": "Търси",
+    "platformSearchField.searchInputLabel": "Търси",
+    "platformSearchField.synchronizeButtonTitle": "Синхронизирай",
+    "platformSearchField.searchSuggestionMessage": "{ count, plural, one {Намерено е 1 предложение} other {Намерени са # предложения} }.",
+    "platformSearchField.searchSuggestionNavigateMessage": "използвайте стрелки нагоре и надолу за навигация"
+}

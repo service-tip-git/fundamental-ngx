@@ -7,7 +7,7 @@ import {
     ContentChildren,
     ElementRef,
     HostBinding,
-    HostListener,
+    HostListener, inject,
     Inject,
     Input,
     OnDestroy,
@@ -17,7 +17,7 @@ import {
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { DialogBodyComponent, FD_DIALOG_BODY_COMPONENT } from '@fundamental-ngx/core/dialog';
 import { scrollTop } from '@fundamental-ngx/cdk/utils';
 import { Nullable } from '@fundamental-ngx/cdk/utils';
@@ -26,7 +26,7 @@ import { WizardProgressBarDirective } from './wizard-progress-bar/wizard-progres
 import { WizardContentComponent } from './wizard-content/wizard-content.component';
 import { ACTIVE_STEP_STATUS, CURRENT_STEP_STATUS, UPCOMING_STEP_STATUS, COMPLETED_STEP_STATUS } from './constants';
 import { WIZARD } from './wizard-injection-token';
-import { FdLanguage, FD_LANGUAGE, TranslationResolver } from '@fundamental-ngx/i18n';
+import { provideDefaultTranslations, TranslationService } from '@fundamental-ngx/i18n';
 import { ScrollbarDirective } from '@fundamental-ngx/core/scrollbar';
 
 export const STEP_MIN_WIDTH = 168;
@@ -63,7 +63,8 @@ export const handleTimeoutReference = (): void => {
         {
             provide: WIZARD,
             useExisting: WizardComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         role: 'region'
@@ -139,8 +140,7 @@ export class WizardComponent implements AfterViewInit, OnDestroy {
     private _subscriptions: Subscription = new Subscription();
 
     /** @hidden */
-    private _translationResolver = new TranslationResolver();
-
+    private _translationService = inject(TranslationService);
     /** @hidden */
     private _previousWidth: number;
 
@@ -148,14 +148,13 @@ export class WizardComponent implements AfterViewInit, OnDestroy {
     constructor(
         private _elRef: ElementRef,
         private readonly _cdRef: ChangeDetectorRef,
-        @Inject(FD_LANGUAGE) _language$: Observable<FdLanguage>,
         @Optional() @Inject(FD_DIALOG_BODY_COMPONENT) private _dialogBodyComponent: DialogBodyComponent
     ) {
-        const sub = _language$.subscribe((lang) => {
-            // set ariaLabel only if it's not applied manually
-            this.ariaLabel ??= this._translationResolver.resolve(lang, 'coreWizard.ariaLabel');
-        });
-        this._subscriptions.add(sub);
+        this._subscriptions.add(
+            this._translationService.translate$('coreWizard.ariaLabel').subscribe(
+                (ariaLabel) => this.ariaLabel = this.ariaLabel ??= ariaLabel
+            )
+        );
     }
 
     /** @hidden */

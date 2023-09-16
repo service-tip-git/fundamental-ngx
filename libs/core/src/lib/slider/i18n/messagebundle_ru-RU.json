@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Минимальное значение слайдера {min}, максимальное значение {max}",
+    "coreSlider.singleValueminDetails": "Значение равно {value}",
+    "coreSlider.singleValuemaxDetails": "Значение равно {value}",
+    "coreSlider.singleValueNowDetails": "Текущее значение: {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Минимальное значение слайдера {min}, максимальное значение {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Значение равно {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Значение равно {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Текущее значение: {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Минимальное значение слайдера {min}, максимальное значение {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Значение равно {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Значение равно {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Текущее значение: {value}"
+}

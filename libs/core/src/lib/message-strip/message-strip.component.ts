@@ -11,7 +11,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { applyCssClass, CssClassBuilder, Nullable } from '@fundamental-ngx/cdk/utils';
-import { I18nModule } from '@fundamental-ngx/i18n';
+import { I18nModule, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { ContentDensityDirective } from '@fundamental-ngx/core/content-density';
 import { ButtonModule } from '@fundamental-ngx/core/button';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
@@ -41,7 +41,10 @@ let messageStripUniqueId = 0;
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [NgIf, ButtonModule, ContentDensityDirective, I18nModule, NgTemplateOutlet, IconModule]
+    imports: [NgIf, ButtonModule, ContentDensityDirective, I18nModule, NgTemplateOutlet, IconModule],
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class MessageStripComponent implements OnInit, OnChanges, CssClassBuilder {
     /** User's custom classes */

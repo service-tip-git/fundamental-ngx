@@ -18,13 +18,17 @@ import { CssClassBuilder } from '@fundamental-ngx/cdk/utils';
 
 import { CSS_CLASS_NAME } from '../../constants';
 import { FeedListItemComponent } from '../item/feed-list-item.component';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fd-feed-list',
     templateUrl: './feed-list.component.html',
     styleUrls: ['./feed-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        provideDefaultTranslations(() => import('../../i18n').then((m) => m.i18n))
+    ]
 })
 export class FeedListComponent implements OnInit, AfterContentChecked, OnDestroy, OnChanges, CssClassBuilder {
     /** User's custom classes */

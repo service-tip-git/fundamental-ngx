@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "გაუქმება",
+    "coreGridList.listItemStatusAriaLabel": "ელემენტის სტატუსია: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "ელემენტს აქვს {count} შვილი.",
+    "coreGridList.listItemButtonDetailsTitle": "დეტალები",
+    "coreGridList.listItemButtonDeleteTitle": "წაშლა",
+    "coreGridList.listItemStatusContainsErrors": "შეიცავს შეცდომებს",
+    "coreGridList.listItemStatusLocked": "დაბლოკილი",
+    "coreGridList.listItemStatusDraft": "დაუსრულებელი"
+}

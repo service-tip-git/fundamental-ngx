@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { DataProvider, MatchingStrategy } from '@fundamental-ngx/cdk/data-source';
 
 import { ContentDensity } from '@fundamental-ngx/cdk/utils';
-// import { PlatformConfig } from '@fundamental-ngx/platform/shared';
 
 /**
  * Default options for Multi-Combobox

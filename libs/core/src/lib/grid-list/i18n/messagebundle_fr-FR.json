@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Annuler",
+    "coreGridList.listItemStatusAriaLabel": "L'élément a un statut. Statut: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "L'élément a {count} d'enfants.",
+    "coreGridList.listItemButtonDetailsTitle": "Détails",
+    "coreGridList.listItemButtonDeleteTitle": "Supprimer",
+    "coreGridList.listItemStatusContainsErrors": "Comporte des erreurs",
+    "coreGridList.listItemStatusLocked": "Bloqué",
+    "coreGridList.listItemStatusDraft": "Brouillon"
+}

@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "स्लाइडर न्यूनतम मूल्य है {min}, अधिकतम मूल्य है {max}",
+    "coreSlider.singleValueminDetails": "मूल्य है {value}",
+    "coreSlider.singleValuemaxDetails": "मूल्य है {value}",
+    "coreSlider.singleValueNowDetails": "वर्तमान मूल्य है {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "रेंज स्लाइडर न्यूनतम मूल्य है {min}, अधिकतम मूल्य है {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "मूल्य है {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "मूल्य है {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "वर्तमान मूल्य है {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "रेंज स्लाइडर न्यूनतम मूल्य है {min}, अधिकतम मूल्य है {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "मूल्य है {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "मूल्य है {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "वर्तमान मूल्य है {value}"
+}

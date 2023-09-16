@@ -1,20 +1,4 @@
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ContentChildren,
-    DestroyRef,
-    ElementRef,
-    EventEmitter,
-    Input,
-    OnInit,
-    Optional,
-    Output,
-    QueryList,
-    ViewChild,
-    ViewEncapsulation
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, DestroyRef, ElementRef, EventEmitter, Input, OnInit, Optional, Output, QueryList, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OverflowLayoutComponent } from '@fundamental-ngx/core/overflow-layout';
 import { RtlService } from '@fundamental-ngx/cdk/utils';
 import { BehaviorSubject } from 'rxjs';
@@ -23,6 +7,7 @@ import { Placement } from '@fundamental-ngx/core/shared';
 import { BreadcrumbItemComponent } from './breadcrumb-item.component';
 import { FD_BREADCRUMB_COMPONENT, FD_BREADCRUMB_ITEM_COMPONENT } from './tokens';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 /**
  * Breadcrumb parent wrapper directive. Must have breadcrumb item child directives.
@@ -49,7 +34,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         {
             provide: FD_BREADCRUMB_COMPONENT,
             useExisting: BreadcrumbComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n)),
     ]
 })
 export class BreadcrumbComponent implements OnInit, AfterViewInit {

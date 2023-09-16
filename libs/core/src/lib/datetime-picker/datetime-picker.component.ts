@@ -43,7 +43,7 @@ import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 import { PopoverModule } from '@fundamental-ngx/core/popover';
 import { SegmentedButtonModule } from '@fundamental-ngx/core/segmented-button';
 import { TimeModule } from '@fundamental-ngx/core/time';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { DatetimePickerMobileComponent } from './datetime-picker-mobile/datetime-picker-mobile.component';
 import { DateTimePicker } from './datetime-picker.model';
 import { createMissingDateImplementationError } from './errors';
@@ -79,7 +79,8 @@ import { FD_DATETIME_PICKER_COMPONENT, FD_DATETIME_PICKER_MOBILE_CONFIG } from '
         registerFormItemControl(DatetimePickerComponent),
         PopoverFormMessageService,
         PopoverService,
-        DynamicComponentService
+        DynamicComponentService,
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,

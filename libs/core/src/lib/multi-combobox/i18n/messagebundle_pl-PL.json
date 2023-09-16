@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Zaznacz wszystko ({selectedItems} z {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Zaznacz elementy",
+    "coreMultiCombobox.inputIconTitle": "Zaznacz elementy",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Pokaż wszystkie elementy",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Pokaż zaznaczone elementy"
+}

@@ -16,9 +16,9 @@ import { patchLanguage } from '@fundamental-ngx/i18n';
                 counterMessageCharactersOverTheLimitPlural: (params) => {
                     switch (+params.count) {
                         case 2:
-                            return 'Two charactes over the limit';
+                            return 'Two characters over the limit';
                         case 3:
-                            return 'Three charactes over the limit';
+                            return 'Three characters over the limit';
                     }
                     return `${params.count} characters over the limit`;
                 }

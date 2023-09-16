@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Annulla",
+    "coreGridList.listItemStatusAriaLabel": "L'articolo ha uno stato. Stato: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "L'articolo ha {count} sottoarticoli.",
+    "coreGridList.listItemButtonDetailsTitle": "Dettagli",
+    "coreGridList.listItemButtonDeleteTitle": "Elimina",
+    "coreGridList.listItemStatusContainsErrors": "Contiene errori",
+    "coreGridList.listItemStatusLocked": "Bloccato",
+    "coreGridList.listItemStatusDraft": "Bozza"
+}

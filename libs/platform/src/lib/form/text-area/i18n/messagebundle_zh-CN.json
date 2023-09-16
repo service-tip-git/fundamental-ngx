@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "超出1个字符",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "超出{count}个字符",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "还可以输入1个字符",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "还可以输入{count}个字符"
+}

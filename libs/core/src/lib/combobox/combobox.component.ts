@@ -60,6 +60,7 @@ import { ContentDensityObserver, contentDensityObserverProviders } from '@fundam
 import { Overlay, RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { FormStates } from '@fundamental-ngx/cdk/forms';
 import { FD_COMBOBOX_COMPONENT } from './tokens';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let comboboxUniqueId = 0;
 
@@ -91,7 +92,8 @@ let comboboxUniqueId = 0;
         {
             provide: FD_COMBOBOX_COMPONENT,
             useExisting: ComboboxComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         '[class.fd-combobox-custom-class]': 'true',

@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "Превышен лимит на 1 символ",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "Превышен лимит на { count, plural, one {1 символ} few {# символа} other {# символов} }",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "Остался 1 символ",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "{ count, plural, one {Остался 1 символ} few {Осталось # символа} other {Осталось # символов} }"
+}

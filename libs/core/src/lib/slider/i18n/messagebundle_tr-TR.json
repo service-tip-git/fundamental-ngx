@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": " Kaydırıcının {min} minimum değeri, {max} maksimum değeri",
+    "coreSlider.singleValueminDetails": "Değer {value}",
+    "coreSlider.singleValuemaxDetails": "Değer {value}",
+    "coreSlider.singleValueNowDetails": "Geçerli değer {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": " Aralığı kaydırma  {min} minimum değeri, {max} maksimum değeri",
+    "coreSlider.multipleHandle1ValueminDetails": "Değer {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Değer {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Geçerli değer {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": " Aralığı kaydırma  {min} minimum değeri, {max} maksimum değeri",
+    "coreSlider.multipleHandle2ValueminDetails": "Değer {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Değer {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Geçerli değer  {value}"
+}

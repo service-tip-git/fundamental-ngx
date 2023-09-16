@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Zrušit",
+    "coreGridList.listItemStatusAriaLabel": "Položka má stav. Stav: {status}",
+    "coreGridList.listItemCounterAriaLabel": "Položka má {count} potomků.",
+    "coreGridList.listItemButtonDetailsTitle": "Podrobnosti",
+    "coreGridList.listItemButtonDeleteTitle": "Vymazat",
+    "coreGridList.listItemStatusContainsErrors": "Obsahuje chyby",
+    "coreGridList.listItemStatusLocked": "Zamčený",
+    "coreGridList.listItemStatusDraft": "Koncept"
+}

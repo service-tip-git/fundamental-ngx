@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Сторінка {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Сторінка {pageNumber} є активною",
+    "corePagination.labelBeforeInputMobile": "Сторінка:",
+    "corePagination.labelAfterInputMobile": "із {totalCount}",
+    "corePagination.inputAriaLabel": "Поле вводу сторінки, Поточна сторінка, Сторінка {pageNumber} із {totalCount}",
+    "corePagination.itemsPerPageLabel": "Результатів на сторінці:",
+    "corePagination.firstLabel": "Перейти до першої",
+    "corePagination.previousLabel": "Перейти до попердньої",
+    "corePagination.nextLabel": "Перейти до наступної",
+    "corePagination.lastLabel": "Перейти до останньої",
+    "corePagination.ariaLabel": "Нумерація сторінок",
+    "corePagination.totalResultsLabel": "{totalCount} результатів"
+}

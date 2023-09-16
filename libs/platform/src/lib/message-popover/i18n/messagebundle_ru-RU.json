@@ -1,0 +1,11 @@
+{
+    "platformMessagePopover.allErrors": "Все",
+    "platformMessagePopover.defaultErrors.email": "Значение поля не соответствует формату E-mail",
+    "platformMessagePopover.defaultErrors.max": "Значение поля превышает максимально допустимое",
+    "platformMessagePopover.defaultErrors.maxLength": "Длина значения поля превышает максимально допустимое",
+    "platformMessagePopover.defaultErrors.min": "Значение поля меньше минимально допустимого",
+    "platformMessagePopover.defaultErrors.minLength": "Длина значения поля меньше максимально допустимого",
+    "platformMessagePopover.defaultErrors.pattern": "Поле не соответствует формату",
+    "platformMessagePopover.defaultErrors.required": "Обязательное поле",
+    "platformMessagePopover.defaultErrors.requiredTrue": "Обязательное поле"
+}

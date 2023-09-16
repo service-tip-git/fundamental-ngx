@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 znak nad limit",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count} znaků překračuje limit",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "Zbývá 1 znak",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "Zbývá {count} znaků"
+}

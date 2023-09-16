@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Data",
+    "coreDatePicker.dateRangeInputLabel": "Przedział czasowy",
+    "coreDatePicker.displayCalendarToggleLabel": "Otwórz selektor",
+    "coreDatePicker.valueStateSuccessMessage": "Value state Success",
+    "coreDatePicker.valueStateInformationMessage": "Value state Information",
+    "coreDatePicker.valueStateWarningMessage": "Value state Warning",
+    "coreDatePicker.valueStateErrorMessage": "Value state Error"
+}

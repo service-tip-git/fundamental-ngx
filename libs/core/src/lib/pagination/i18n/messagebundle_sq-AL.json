@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Faqja {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Faqja {pageNumber} është faqja aktuale",
+    "corePagination.labelBeforeInputMobile": "Faqja:",
+    "corePagination.labelAfterInputMobile": "nga {totalCount}",
+    "corePagination.inputAriaLabel": "Hyrja e faqes, Faqja aktuale, Faqja {pageNumber} nga {TotalCount}",
+    "corePagination.itemsPerPageLabel": "Rezultatet për faqe:",
+    "corePagination.firstLabel": "Së pari",
+    "corePagination.previousLabel": "E mëparshme",
+    "corePagination.nextLabel": "Tjetër",
+    "corePagination.lastLabel": "E fundit",
+    "corePagination.ariaLabel": "Faqimi",
+    "corePagination.totalResultsLabel": "{totalCount} Rezultate"
+}

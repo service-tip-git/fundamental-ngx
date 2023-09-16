@@ -45,6 +45,7 @@ import { TreeService } from './tree.service';
 import { SelectionPlacement, SelectionType } from './models/selection-type';
 import { TreeItem, TreeItemGeneric } from './models/tree-item';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fd-tree',
@@ -75,7 +76,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         {
             provide: FD_DATA_SOURCE_TRANSFORMER,
             useClass: TreeDataSourceParser
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class TreeComponent<P extends FdTreeAcceptableDataSource, T extends TreeItem = FdTreeItemType<P>>

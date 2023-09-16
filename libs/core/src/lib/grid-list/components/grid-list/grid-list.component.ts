@@ -23,6 +23,7 @@ import {
 } from '../../models/grid-list-selection.models';
 import { GridListItemComponent } from '../grid-list-item/grid-list-item.component';
 import { GridList } from './grid-list-base.component';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let gridListUniqueId = 0;
 
@@ -31,7 +32,10 @@ let gridListUniqueId = 0;
     templateUrl: './grid-list.component.html',
     styleUrls: ['./grid-list.component.scss', '../../../../../../cdk/src/lib/utils/drag-and-drop/drag-and-drop.scss'],
     encapsulation: ViewEncapsulation.None,
-    providers: [{ provide: GridList, useExisting: GridListComponent }],
+    providers: [
+        { provide: GridList, useExisting: GridListComponent },
+        provideDefaultTranslations(() => import('../../i18n').then((m) => m.i18n))
+    ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridListComponent<T> extends GridList<T> implements OnChanges, AfterContentInit, OnDestroy {

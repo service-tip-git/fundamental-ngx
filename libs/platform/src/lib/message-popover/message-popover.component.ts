@@ -20,7 +20,7 @@ import { ButtonModule } from '@fundamental-ngx/core/button';
 import { ObjectStatusComponent } from '@fundamental-ngx/core/object-status';
 import { PopoverComponent, PopoverModule } from '@fundamental-ngx/core/popover';
 import { SegmentedButtonModule } from '@fundamental-ngx/core/segmented-button';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { getFormState } from '@fundamental-ngx/platform/form';
 import { countBy, flatten } from 'lodash-es';
 import { MessageViewComponent } from './components/message-view/message-view.component';
@@ -40,6 +40,9 @@ import { convertFormState, convertFormStateToMessagePopoverState } from './utils
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ],
     imports: [
         NgIf,
         PopoverModule,

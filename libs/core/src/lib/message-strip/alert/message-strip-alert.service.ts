@@ -125,11 +125,11 @@ export class MessageStripAlertService {
                             provide: MessageStripAlertRef,
                             useFactory: () => alertRef
                         },
-                        patchLanguage((lang) => ({
-                            coreMessageStrip: {
-                                dismissLabel: config.messageStrip.dismissLabel || lang.coreMessageStrip.dismissLabel
-                            }
-                        }))
+                        // patchLanguage((lang) => ({
+                        //     coreMessageStrip: {
+                        //         dismissLabel: config.messageStrip.dismissLabel || lang.coreMessageStrip.dismissLabel
+                        //     }
+                        // }))
                     ],
                     parent: this.injector
                 })

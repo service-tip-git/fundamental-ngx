@@ -28,7 +28,7 @@ import { FD_SHELLBAR_COMPONENT, FD_SHELLBAR_SEARCH_COMPONENT } from './tokens';
 import { SideNavigationInterface } from '@fundamental-ngx/core/side-navigation';
 import { Breakpoints, NormalizedBreakpoint, ShellbarGroupFlexOptions, ShellbarSizes } from './model/shellbar-sizes';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { NgIf } from '@angular/common';
 
 /**
@@ -50,7 +50,8 @@ import { NgIf } from '@angular/common';
         {
             provide: FD_SHELLBAR_COMPONENT,
             useExisting: ShellbarComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     standalone: true,
     imports: [NgIf, PortalModule, FdTranslatePipe]

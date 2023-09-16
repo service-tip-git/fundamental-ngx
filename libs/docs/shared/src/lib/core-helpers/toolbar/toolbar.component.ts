@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import {
     ChangeDetectionStrategy,
     Component,
-    EventEmitter,
+    EventEmitter, inject,
     Inject,
     OnDestroy,
     OnInit,
@@ -32,26 +32,11 @@ import {
     ShellbarSidenavDirective,
     ShellbarSizes
 } from '@fundamental-ngx/core/shellbar';
-import {
-    FD_LANGUAGE,
-    FD_LANGUAGE_ALBANIAN,
-    FD_LANGUAGE_BULGARIAN,
-    FD_LANGUAGE_CHINESE,
-    FD_LANGUAGE_CZECH,
-    FD_LANGUAGE_ENGLISH,
-    FD_LANGUAGE_FRENCH,
-    FD_LANGUAGE_GEORGIAN,
-    FD_LANGUAGE_HINDI,
-    FD_LANGUAGE_ITALIAN,
-    FD_LANGUAGE_POLISH,
-    FD_LANGUAGE_RUSSIAN,
-    FD_LANGUAGE_TURKISH,
-    FD_LANGUAGE_UKRAINIAN,
-    FdLanguage
-} from '@fundamental-ngx/i18n';
-import { BehaviorSubject, Subject, filter, fromEvent } from 'rxjs';
+import { TranslationService } from '@fundamental-ngx/i18n';
+import { Subject, filter, fromEvent } from 'rxjs';
 import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 import { DocsService } from '../../services/docs.service';
+import { FormsModule } from "@angular/forms";
 
 const urlContains = (themeName: string, search: string): boolean => themeName.toLowerCase().includes(search);
 
@@ -85,7 +70,8 @@ type Version = {
         NgTemplateOutlet,
         NgFor,
         IconModule,
-        LowerCasePipe
+        LowerCasePipe,
+        FormsModule
     ]
 })
 export class ToolbarDocsComponent implements OnInit, OnDestroy {
@@ -115,20 +101,22 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
     initialTheme = 'sap_horizon';
 
     translations = [
-        { name: 'Shqip', value: FD_LANGUAGE_ALBANIAN },
-        { name: 'Български', value: FD_LANGUAGE_BULGARIAN },
-        { name: '简体中文', value: FD_LANGUAGE_CHINESE },
-        { name: 'Český', value: FD_LANGUAGE_CZECH },
-        { name: 'English', value: FD_LANGUAGE_ENGLISH },
-        { name: 'Français', value: FD_LANGUAGE_FRENCH },
-        { name: 'ქართული', value: FD_LANGUAGE_GEORGIAN },
-        { name: 'हिन्दी', value: FD_LANGUAGE_HINDI },
-        { name: 'Italiano', value: FD_LANGUAGE_ITALIAN },
-        { name: 'Polski', value: FD_LANGUAGE_POLISH },
-        { name: 'Русский', value: FD_LANGUAGE_RUSSIAN },
-        { name: 'Türkçe', value: FD_LANGUAGE_TURKISH },
-        { name: 'Українська', value: FD_LANGUAGE_UKRAINIAN }
+        { name: 'Shqip', value: 'sq-AL' },
+        { name: 'Български', value: 'bg-BG' },
+        { name: '简体中文', value: 'zh-CN' },
+        { name: 'Český', value: 'cs-CZ' },
+        { name: 'English', value: 'en-US' },
+        { name: 'Français', value: 'fr-FR' },
+        { name: 'ქართული', value: 'ka-GE' },
+        { name: 'हिन्दी', value: 'hi-IN' },
+        { name: 'Italiano', value: 'it-IT' },
+        { name: 'Polski', value: 'pl-PL' },
+        { name: 'Русский', value: 'ru-RU' },
+        { name: 'Türkçe', value: 'tr-TR' },
+        { name: 'Українська', value: 'uk-UA' }
     ];
+
+    selectedLocale: string;
 
     items: ShellbarMenuItem[] = [
         {
@@ -157,6 +145,8 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
         }
     ];
 
+    private _translationService = inject(TranslationService);
+
     /** An RxJS Subject that will kill the data stream upon destruction (for unsubscribing)  */
     private readonly _onDestroy$: Subject<void> = new Subject<void>();
 
@@ -164,12 +154,13 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
         private _routerService: Router,
         private _contentDensityService: GlobalContentDensityService,
         private _themingService: ThemingService,
-        @Inject(FD_LANGUAGE) private langSubject$: BehaviorSubject<FdLanguage>,
         private _route: ActivatedRoute,
         private _domSanitizer: DomSanitizer,
         private _docsService: DocsService,
         private _http: HttpClient
     ) {
+        this.selectedLocale = this._translationService.getLocale();
+        console.log({ selectedLocale: this.selectedLocale });
         this.version = {
             id: this._docsService.getLernaJson().version,
             url: ''
@@ -223,8 +214,9 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
         this.updateHighlightTheme(themeId);
     }
 
-    selectTranslation(translation: FdLanguage): void {
-        this.langSubject$.next(translation);
+    selectTranslation(locale: string): void {
+        this.selectedLocale = locale;
+        this._translationService.setLocale(locale);
         this.i18nMenu.close();
     }
 
@@ -246,7 +238,6 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
                 this.versions.unshift(this.version);
             });
     }
-
     private trustedResourceUrl = (url: string): SafeResourceUrl =>
         this._domSanitizer.bypassSecurityTrustResourceUrl(url);
 

@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "日期输入",
+    "coreDatePicker.dateRangeInputLabel": "日期范围输入",
+    "coreDatePicker.displayCalendarToggleLabel": "打开选择器",
+    "coreDatePicker.valueStateSuccessMessage": "值状态成功",
+    "coreDatePicker.valueStateInformationMessage": "值状态信息",
+    "coreDatePicker.valueStateWarningMessage": "值状态警告",
+    "coreDatePicker.valueStateErrorMessage": "值状态错误"
+}

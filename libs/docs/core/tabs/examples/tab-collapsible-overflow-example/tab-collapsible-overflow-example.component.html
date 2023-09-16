@@ -1,6 +1,11 @@
 <label fd-form-label>Collapsible overflow</label>
 <fd-tab-list [collapseOverflow]="true">
-    <fd-tab *ngFor="let tab of tabs" [title]="tab.title">
+    <fd-tab *ngFor="let tab of tabs">
+        <ng-template fd-tab-title-template>
+            <a href="#somewhere" target="_blank">
+                {{ tab.title }}
+            </a>
+        </ng-template>
         {{ tab.content }}
     </fd-tab>
 </fd-tab-list>

@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Anuluj",
+    "coreGridList.listItemStatusAriaLabel": "Status elementu: {status} ",
+    "coreGridList.listItemCounterAriaLabel": "Element posiada {count} subelementów",
+    "coreGridList.listItemButtonDetailsTitle": "Szczegóły",
+    "coreGridList.listItemButtonDeleteTitle": "Usuń",
+    "coreGridList.listItemStatusContainsErrors": "Zawiera błędy",
+    "coreGridList.listItemStatusLocked": "Zablokowany",
+    "coreGridList.listItemStatusDraft": "Szkic"
+}

@@ -12,13 +12,17 @@ import {
 import { FocusKeyManager } from '@angular/cdk/a11y';
 import { delay, map, merge, startWith, Subject, takeUntil } from 'rxjs';
 import { ListNavigationItemComponent } from '@fundamental-ngx/core/list';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fd-vertical-navigation',
     templateUrl: './vertical-navigation.component.html',
     styleUrls: ['./vertical-navigation.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class VerticalNavigationComponent implements AfterContentInit, OnDestroy {
     /** Whether or not this component is to be shown in 'condensed' mode. */

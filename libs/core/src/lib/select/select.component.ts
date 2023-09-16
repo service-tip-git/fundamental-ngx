@@ -45,6 +45,7 @@ import { SelectMobileModule } from './select-mobile/select-mobile.module';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
 import { ENTER, ESCAPE, SPACE } from '@angular/cdk/keycodes';
 import { FormFieldAdvancedStateMessage, FormStates } from '@fundamental-ngx/cdk/forms';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let selectUniqueId = 0;
 
@@ -80,7 +81,8 @@ export const SELECT_ITEM_HEIGHT_EM = 4;
         },
         registerFormItemControl(SelectComponent),
         SelectKeyManagerService,
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class SelectComponent<T = any>

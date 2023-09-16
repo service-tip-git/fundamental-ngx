@@ -87,7 +87,7 @@
                     [placeholder]="placeholder"
                     [formControl]="_searchTermCtrl"
                     [attr.aria-required]="required"
-                    [ariaLabel]="ariaLabel || _defaultAriaLabel"
+                    [ariaLabel]="ariaLabel || (_defaultAriaLabel$ | async)"
                     [ariaLabelledBy]="ariaLabelledBy"
                     (keydown)="_handleInputKeydown($event)"
                     [attr.id]="inputId"

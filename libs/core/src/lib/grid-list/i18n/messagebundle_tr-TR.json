@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Vazgeç",
+    "coreGridList.listItemStatusAriaLabel": "Eşyayı statü var. Statü: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Eşyayı {count} alt eşyası var.",
+    "coreGridList.listItemButtonDetailsTitle": "Detaylar",
+    "coreGridList.listItemButtonDeleteTitle": "Sil",
+    "coreGridList.listItemStatusContainsErrors": "Hata içerir",
+    "coreGridList.listItemStatusLocked": "Kilitli",
+    "coreGridList.listItemStatusDraft": "Taslak"
+}

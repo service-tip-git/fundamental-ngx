@@ -43,6 +43,7 @@ import {
 } from '../models/upload-collection.models';
 import { generateMessageStripeData } from '../helpers/generate-message-stripe-data';
 import { UploadCollectionDataSource } from '../domain/upload-collection-data-source';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export type FdpUploadCollectionDataSource = UploadCollectionDataSource;
 
@@ -56,7 +57,10 @@ let randomId = 0;
     selector: 'fdp-upload-collection',
     templateUrl: './upload-collection.component.html',
     styleUrls: ['./upload-collection.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        provideDefaultTranslations(() => import('../i18n').then((m) => m.i18n))
+    ]
 })
 export class UploadCollectionComponent
     implements OnChanges, OnDestroy, UploadCollectionCmp<FdpUploadCollectionDataSource>

@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
     DATE_TIME_FORMATS,
@@ -8,22 +8,10 @@ import {
     FdDate,
     FdDatetimeAdapter
 } from '@fundamental-ngx/core/datetime';
-import {
-    DatetimePickerComponent,
-    DatetimePickerComponent as DatetimePickerComponent_1
-} from '@fundamental-ngx/core/datetime-picker';
+import { DatetimePickerComponent } from '@fundamental-ngx/core/datetime-picker';
 import { FormLabelComponent } from '@fundamental-ngx/core/form';
 import { SelectModule } from '@fundamental-ngx/core/select';
-import {
-    FD_LANGUAGE,
-    FD_LANGUAGE_BULGARIAN,
-    FD_LANGUAGE_CHINESE,
-    FD_LANGUAGE_ENGLISH,
-    FD_LANGUAGE_FRENCH,
-    FD_LANGUAGE_POLISH,
-    FdLanguage
-} from '@fundamental-ngx/i18n';
-import { BehaviorSubject } from 'rxjs';
+import { provideTranslator, TranslationService } from '@fundamental-ngx/i18n';
 
 const placeholders = new Map([
     ['en-ca', 'mm/dd/yyyy, hh:mm a'],
@@ -39,10 +27,7 @@ const placeholders = new Map([
     providers: [
         // Note that this is usually provided in the root of your application.
         // Due to the limit of this example we must provide it on this level.
-        {
-            provide: LOCALE_ID,
-            useValue: 'en-ca'
-        },
+        provideTranslator(),
         {
             provide: DatetimeAdapter,
             useClass: FdDatetimeAdapter
@@ -53,10 +38,10 @@ const placeholders = new Map([
         }
     ],
     standalone: true,
-    imports: [FormLabelComponent, SelectModule, NgFor, DatetimePickerComponent_1, FormsModule]
+    imports: [FormLabelComponent, SelectModule, NgFor, DatetimePickerComponent, FormsModule]
 })
 export class DatetimePickerComplexI18nExampleComponent {
-    locale = 'en-ca';
+    locale = 'en-US';
 
     date = FdDate.getNow();
 
@@ -66,23 +51,13 @@ export class DatetimePickerComplexI18nExampleComponent {
 
     constructor(
         private datetimeAdapter: DatetimeAdapter<FdDate>,
-        @Inject(FD_LANGUAGE) private langSubject$: BehaviorSubject<FdLanguage>
+        private translationsService: TranslationService
     ) {}
 
     public setLocale(locale: string): void {
         this.locale = locale;
+        this.translationsService.setLocale(locale);
         this.datetimeAdapter.setLocale(locale);
         this.placeholder = placeholders.get(this.locale) as string;
-        if (locale === 'en-ca') {
-            this.langSubject$.next(FD_LANGUAGE_ENGLISH);
-        } else if (locale === 'fr') {
-            this.langSubject$.next(FD_LANGUAGE_FRENCH);
-        } else if (locale === 'bg') {
-            this.langSubject$.next(FD_LANGUAGE_BULGARIAN);
-        } else if (locale === 'pl') {
-            this.langSubject$.next(FD_LANGUAGE_POLISH);
-        } else if (locale === 'zh') {
-            this.langSubject$.next(FD_LANGUAGE_CHINESE);
-        }
     }
 }

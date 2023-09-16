@@ -30,7 +30,7 @@ import { resizeObservable, RtlService } from '@fundamental-ngx/cdk/utils';
 import { CarouselItemComponent } from './carousel-item/carousel-item.component';
 import { CarouselResourceStringsEN, FdCarouselResourceStrings } from './i18n/carousel-resources';
 import { CarouselConfig, CarouselItemInterface, CarouselService, PanEndOutput } from './carousel.service';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { ButtonModule } from '@fundamental-ngx/core/button';
 import { NgIf, NgTemplateOutlet, NgClass, NgFor } from '@angular/common';
 
@@ -61,7 +61,10 @@ class CarouselActiveSlides {
     styleUrls: ['./carousel.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    providers: [CarouselService],
+    providers: [
+        CarouselService,
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ],
     host: {
         '[style.width]': 'width'
     },

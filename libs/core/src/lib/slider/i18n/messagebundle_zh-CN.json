@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "滑动条最小值为{min}，最大值为{max}",
+    "coreSlider.singleValueminDetails": "值等于{value}",
+    "coreSlider.singleValuemaxDetails": "值等于{value}",
+    "coreSlider.singleValueNowDetails": "目前值等于{value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "范围滑动条最小值为{min}，最大值为{max}",
+    "coreSlider.multipleHandle1ValueminDetails": "值等于{value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "值等于{value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "目前值等于{value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "范围滑动条最小值为{min}，最大值为{max}",
+    "coreSlider.multipleHandle2ValueminDetails": "值等于{value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "值等于{value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "目前值等于{value}"
+}

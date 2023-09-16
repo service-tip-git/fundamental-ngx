@@ -55,7 +55,7 @@ import {
 } from '@fundamental-ngx/core/content-density';
 import { SliderPositionDirective } from './slider-position.directive';
 import { NgTemplateOutlet, NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 
 export const SLIDER_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
@@ -77,7 +77,8 @@ let sliderId = 0;
             modifiers: {
                 [ContentDensityMode.COZY]: 'fd-slider--lg'
             }
-        })
+        }),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         '(mouseenter)': 'this._componentHovered$.next(true)',

@@ -11,13 +11,17 @@ import { ColorAccent } from '@fundamental-ngx/cdk/utils';
 
 import { BaseListItem, StatusType } from '../base-list-item';
 import { ObjectListItemRowComponent } from './object-list-item-row.component';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fdp-object-list-item',
     templateUrl: './object-list-item.component.html',
     styleUrls: ['./object-list-item.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    providers: [{ provide: BaseListItem, useExisting: forwardRef(() => ObjectListItemComponent) }],
+    providers: [
+        { provide: BaseListItem, useExisting: forwardRef(() => ObjectListItemComponent) },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ObjectListItemComponent extends BaseListItem {

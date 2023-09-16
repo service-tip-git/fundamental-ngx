@@ -18,6 +18,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { FD_ICON_COMPONENT, IconComponent } from '@fundamental-ngx/core/icon';
 import { Nullable } from '@fundamental-ngx/cdk/utils';
 import { BaseComponent } from '@fundamental-ngx/platform/shared';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export type LinkType = 'standard' | 'emphasized' | 'subtle';
 export type NavigationTarget = '_blank' | '_self' | '_parent' | '_top' | 'framename';
@@ -28,7 +29,10 @@ const VALID_INPUT_TYPES = ['standard', 'emphasized', 'subtle'];
     templateUrl: './link.component.html',
     styleUrls: ['./link.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class LinkComponent extends BaseComponent implements OnInit, AfterViewInit {
     /**

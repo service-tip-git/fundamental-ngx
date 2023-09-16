@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "Effacer",
+    "platformSearchField.submitButtonTitle": "Rechercher",
+    "platformSearchField.searchInputLabel": "Rechercher",
+    "platformSearchField.synchronizeButtonTitle": "Synchroniser",
+    "platformSearchField.searchSuggestionMessage": "{count} de suggestions trouvées",
+    "platformSearchField.searchSuggestionNavigateMessage": "utiliser les flèches haut et bas pour naviguer"
+}

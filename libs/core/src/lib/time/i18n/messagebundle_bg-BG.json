@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Избери час",
+    "coreTime.increaseHoursLabel": "Увеличи часовете",
+    "coreTime.hoursLabel": "Час",
+    "coreTime.decreaseHoursLabel": "Намали часовете",
+    "coreTime.increaseMinutesLabel": "Увеличи минутите",
+    "coreTime.minutesLabel": "Мин",
+    "coreTime.decreaseMinutesLabel": "Намали минутите",
+    "coreTime.increaseSecondsLabel": "Увеличи секундите",
+    "coreTime.secondsLabel": "Сек",
+    "coreTime.decreaseSecondsLabel": "Намали секундите",
+    "coreTime.increasePeriodLabel": "Увеличи интервала",
+    "coreTime.periodLabel": "Интервал",
+    "coreTime.decreasePeriodLabel": "Намали интервала",
+    "coreTime.navigationInstruction": "За да се придвижвате между елементите в този списък, натиснете горната стрелка или долната стрелка. За да превключвате между списъците, натиснете стрелка наляво или стрелка надясно."
+}

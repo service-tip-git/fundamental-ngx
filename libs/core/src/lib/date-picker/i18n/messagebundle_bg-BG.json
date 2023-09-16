@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Поле за дата",
+    "coreDatePicker.dateRangeInputLabel": "Поле за дата интервал",
+    "coreDatePicker.displayCalendarToggleLabel": "Избери дата",
+    "coreDatePicker.valueStateSuccessMessage": "Състояние Успех",
+    "coreDatePicker.valueStateInformationMessage": "Състояние Информиране",
+    "coreDatePicker.valueStateWarningMessage": "Състояние Предупреждение",
+    "coreDatePicker.valueStateErrorMessage": "Състояние Грешка"
+}

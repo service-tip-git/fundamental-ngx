@@ -42,18 +42,33 @@ export function extractAsyncFactoryToObservable<T>(p: CanBeAsyncFactory<T>): Obs
 
 export function flattenTranslations(
     translations: LocaleTranslations,
-    prefix: string | null = null
-): Record<string, string> {
+    prefix: string | null = null,
+    translationValueTransformer?: (value: string | FdLanguageKeyFunction) => string | FdLanguageKeyFunction
+): Record<string, string | FdLanguageKeyFunction> {
     if (!translations) {
         return {};
     }
-    return Object.keys(translations).reduce((acc, key) => {
+    return Object.keys(translations).reduce((acc: Record<string, string | FdLanguageKeyFunction>, key) => {
         const translationValue = translations[key];
+        const globalKey = prefix ? `${prefix}.${key}` : key;
         if (typeof translationValue === 'string' || typeof translationValue === 'function') {
-            acc[prefix ? `${prefix}.${key}` : key] = translations[key];
+            acc[globalKey] = translationValueTransformer ? translationValueTransformer(translationValue) : translationValue;
         } else {
-            Object.assign(acc, flattenTranslations(translationValue, prefix ? `${prefix}.${key}` : key));
+            Object.assign(acc, flattenTranslations(translationValue, globalKey, translationValueTransformer));
         }
         return acc;
     }, {});
+}
+
+export function replaceDoubleCurlyBraces(input: string | FdLanguageKeyFunction): string | FdLanguageKeyFunction {
+    if (typeof input !== 'string') {
+        return input;
+    }
+    // Regular expression to find and replace double curly braces
+    const regex = /{{\s*([^{}]+?)\s*}}/g;
+
+    // Use a callback function to preserve ICU expressions
+    return input.replace(regex, (_match, group) => {
+        return `{${group}}`;
+    });
 }

@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "确定",
+    "coreUploadCollection.menuCancelText": "取消",
+    "coreUploadCollection.menuEditAriaLabel": "编辑",
+    "coreUploadCollection.menuDeleteAriaLabel": "删除",
+    "coreUploadCollection.menuOkAriaLabel": "确定",
+    "coreUploadCollection.menuCancelAriaLabel": "取消",
+    "coreUploadCollection.formItemPlaceholder": "文件名"
+}

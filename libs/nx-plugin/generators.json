@@ -3,6 +3,11 @@
     "name": "nx-plugin",
     "version": "0.0.1",
     "generators": {
+        "i18n-separation": {
+            "factory": "./src/generators/i18n-separation/generator",
+            "schema": "./src/generators/i18n-separation/schema.json",
+            "description": "i18n separation"
+        },
         "sap-component": {
             "factory": "./src/generators/sap-component/generator",
             "schema": "./src/generators/sap-component/schema.json",

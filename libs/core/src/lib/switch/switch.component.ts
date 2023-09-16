@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
 import { Nullable } from '@fundamental-ngx/cdk/utils';
 import { FormItemControl, registerFormItemControl } from '@fundamental-ngx/core/form';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let switchUniqueId = 0;
 
@@ -34,7 +35,8 @@ let switchUniqueId = 0;
             multi: true
         },
         registerFormItemControl(SwitchComponent),
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         class: 'fd-form__item fd-form__item--check fd-switch-custom',

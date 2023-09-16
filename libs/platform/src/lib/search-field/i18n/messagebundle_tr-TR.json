@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "Temiz",
+    "platformSearchField.submitButtonTitle": "Ara",
+    "platformSearchField.searchInputLabel": "Ara",
+    "platformSearchField.synchronizeButtonTitle": "Senkronize",
+    "platformSearchField.searchSuggestionMessage": "{count} öneri bulundu.",
+    "platformSearchField.searchSuggestionNavigateMessage": "gezinmek için yukarı ve aşağı okları kullanın"
+}

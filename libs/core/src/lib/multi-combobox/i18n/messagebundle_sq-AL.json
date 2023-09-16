@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Selekto të gjitha ({selectedItems} nga {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Zgjidhni Opsionet",
+    "coreMultiCombobox.inputIconTitle": "Zgjidhni Opsionet",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Shfaq të gjithë artikujt",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Shfaq artikujt e zgjedhur"
+}

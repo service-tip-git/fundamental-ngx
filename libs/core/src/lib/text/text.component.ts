@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { LineClampDirective, LineClampTargetDirective, Nullable } from '@fundamental-ngx/cdk/utils';
 import { LinkComponent } from '@fundamental-ngx/core/link';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { NgIf } from '@angular/common';
 
 /** Type of hyphenation */
@@ -22,7 +22,10 @@ export type HyphenationType = 'none' | 'manual' | 'auto' | null;
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LineClampDirective, LineClampTargetDirective, LinkComponent, FdTranslatePipe, NgIf],
-    standalone: true
+    standalone: true,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class TextComponent {
     /**

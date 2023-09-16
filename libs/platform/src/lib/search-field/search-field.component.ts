@@ -11,7 +11,7 @@ import {
     Directive,
     ElementRef,
     EventEmitter,
-    HostListener,
+    HostListener, inject,
     Inject,
     Injector,
     Input,
@@ -31,7 +31,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 
-import { firstValueFrom, fromEvent, isObservable, merge, Observable, of, Subject } from 'rxjs';
+import { fromEvent, isObservable, merge, Observable, of, Subject } from 'rxjs';
 import { filter, map, take, takeUntil } from 'rxjs/operators';
 
 import { DynamicComponentService, KeyUtil, Nullable, RtlService } from '@fundamental-ngx/cdk/utils';
@@ -40,7 +40,7 @@ import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 import { PopoverComponent } from '@fundamental-ngx/core/popover';
 import { SearchComponent } from '@fundamental-ngx/core/shared';
 import { FD_SHELLBAR_SEARCH_COMPONENT } from '@fundamental-ngx/core/shellbar';
-import { FD_LANGUAGE, FdLanguage, TranslationResolver } from '@fundamental-ngx/i18n';
+import { provideDefaultTranslations, TranslationService } from '@fundamental-ngx/i18n';
 import { BaseComponent, SearchFieldDataSource } from '@fundamental-ngx/platform/shared';
 import equal from 'fast-deep-equal';
 import {
@@ -97,7 +97,8 @@ type Appearance = SearchComponent['appearance'] | undefined;
         {
             provide: FD_SHELLBAR_SEARCH_COMPONENT,
             useExisting: SearchFieldComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class SearchFieldComponent
@@ -347,7 +348,7 @@ export class SearchFieldComponent
     private _suggestionkeyManager: FocusKeyManager<SearchFieldSuggestionDirective>;
 
     /** @hidden */
-    private _translationResolver = new TranslationResolver();
+    private _translationService = inject(TranslationService);
 
     /** @hidden */
     private readonly _onDestroy$ = new Subject<void>();
@@ -367,7 +368,6 @@ export class SearchFieldComponent
         protected readonly _cd: ChangeDetectorRef,
         @Optional() private readonly _rtl: RtlService,
         @Inject(DOCUMENT) private readonly _document: Document,
-        @Inject(FD_LANGUAGE) private readonly _language$: Observable<FdLanguage>,
         private readonly _liveAnnouncer: LiveAnnouncer,
         readonly _dynamicComponentService: DynamicComponentService,
         readonly contentDensityObserver: ContentDensityObserver
@@ -690,14 +690,11 @@ export class SearchFieldComponent
     private async _updateSearchAnnoucementText(): Promise<void> {
         // create search suggestion message with count.
         const suggestionCount = this._getSuggestionsLength();
-        const lang = await firstValueFrom(this._language$);
-        const searchSuggestionMessage = this._translationResolver.resolve(
-            lang,
+        const searchSuggestionMessage = this._translationService.translate(
             'platformSearchField.searchSuggestionMessage',
             { count: suggestionCount }
         );
-        const searchSuggestionNavigateMessage = this._translationResolver.resolve(
-            lang,
+        const searchSuggestionNavigateMessage = this._translationService.translate(
             'platformSearchField.searchSuggestionNavigateMessage'
         );
         this._currentSearchSuggestionAnnoucementMessage =

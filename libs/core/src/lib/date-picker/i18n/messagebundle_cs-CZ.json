@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Date input",
+    "coreDatePicker.dateRangeInputLabel": "Date range input",
+    "coreDatePicker.displayCalendarToggleLabel": "Otevřete výběr",
+    "coreDatePicker.valueStateSuccessMessage": "Úspěšný stav hodnoty",
+    "coreDatePicker.valueStateInformationMessage": "Informativní stav hodnoty",
+    "coreDatePicker.valueStateWarningMessage": "Varovný stav hodnoty",
+    "coreDatePicker.valueStateErrorMessage": "Chybný stav hodnoty"
+}

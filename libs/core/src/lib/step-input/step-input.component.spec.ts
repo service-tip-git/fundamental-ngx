@@ -1,15 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { whenStable } from '@fundamental-ngx/core/tests';
 import { StepInputComponent } from './step-input.component';
 import { StepInputModule } from './step-input.module';
 import { FormStates } from '@fundamental-ngx/cdk/forms';
-import { FD_LANGUAGE, FD_LANGUAGE_ENGLISH } from '@fundamental-ngx/i18n';
-import { BehaviorSubject } from 'rxjs';
+import { provideTranslator, TranslationService } from '@fundamental-ngx/i18n';
 
 const initialValue = 100;
-
-const lang$ = new BehaviorSubject(FD_LANGUAGE_ENGLISH);
 
 @Component({
     template: `
@@ -29,10 +26,7 @@ const lang$ = new BehaviorSubject(FD_LANGUAGE_ENGLISH);
         </fd-step-input>
     `,
     providers: [
-        {
-            provide: FD_LANGUAGE,
-            useValue: lang$
-        }
+        provideTranslator()
     ]
 })
 class TestWrapperComponent {
@@ -41,6 +35,8 @@ class TestWrapperComponent {
 
     @ViewChild(StepInputComponent, { read: ElementRef, static: true })
     stepInputElement: ElementRef;
+
+    translationService = inject(TranslationService);
 
     step = 1;
 
@@ -202,9 +198,9 @@ describe('StepInputComponent', () => {
         const decrementButtonTitle = 'Dec Button Title';
 
         testComponent.inputTitle = inputTitle;
-        lang$.next({
-            ...lang$.value,
-            coreStepInput: { ...lang$.value.coreStepInput, incrementButtonTitle, decrementButtonTitle }
+        testComponent.translationService.patchLocale({
+            'coreStepInput.incrementButtonTitle': incrementButtonTitle,
+            'coreStepInput.decrementButtonTitle': decrementButtonTitle
         });
 
         await whenStable(fixture);

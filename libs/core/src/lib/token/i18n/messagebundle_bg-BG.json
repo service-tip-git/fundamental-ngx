@@ -1,0 +1,5 @@
+{
+  "coreToken.deleteButtonLabel": "Изтриваем",
+  "coreToken.ariaRoleDescription": "жетон",
+  "coreTokenizer.moreLabel": "Още { count, plural, one {1 елемент} other {# елемента} }"
+}

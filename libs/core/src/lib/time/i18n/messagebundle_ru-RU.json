@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Выбор времени",
+    "coreTime.increaseHoursLabel": "Увеличить часы",
+    "coreTime.hoursLabel": "Час",
+    "coreTime.decreaseHoursLabel": "Уменьшить часы",
+    "coreTime.increaseMinutesLabel": "Увеличить минуты",
+    "coreTime.minutesLabel": "Мин",
+    "coreTime.decreaseMinutesLabel": "Уменьшить минуты",
+    "coreTime.increaseSecondsLabel": "Увеличить секунды",
+    "coreTime.secondsLabel": "Сек",
+    "coreTime.decreaseSecondsLabel": "Уменьшить секунды",
+    "coreTime.increasePeriodLabel": "Увеличить период",
+    "coreTime.periodLabel": "Период",
+    "coreTime.decreasePeriodLabel": "Уменьшить период",
+    "coreTime.navigationInstruction": "Для перемещения между элементами в этом списке используйте стрелку вверх или вниз. Для переключения между списками используйте стрелку влево или вправо."
+}

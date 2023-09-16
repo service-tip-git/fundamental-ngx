@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Time picker",
+    "coreTime.increaseHoursLabel": "Increase hours",
+    "coreTime.hoursLabel": "Hrs",
+    "coreTime.decreaseHoursLabel": "Decrease hours",
+    "coreTime.increaseMinutesLabel": "Increase minutes",
+    "coreTime.minutesLabel": "Min",
+    "coreTime.decreaseMinutesLabel": "Decrease minutes",
+    "coreTime.increaseSecondsLabel": "Increase seconds",
+    "coreTime.secondsLabel": "Sec",
+    "coreTime.decreaseSecondsLabel": "Decrease seconds",
+    "coreTime.increasePeriodLabel": "Increase period",
+    "coreTime.periodLabel": "Period",
+    "coreTime.decreasePeriodLabel": "Decrease period",
+    "coreTime.navigationInstruction": "To move between items in this list, press top arrow or bottom arrow. To switch between lists press left arrow or right arrow."
+}

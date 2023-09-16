@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "კარგი",
+    "coreUploadCollection.menuCancelText": "გაუქმება",
+    "coreUploadCollection.menuEditAriaLabel": "შესწორება",
+    "coreUploadCollection.menuDeleteAriaLabel": "წაშლა",
+    "coreUploadCollection.menuOkAriaLabel": "კარგი",
+    "coreUploadCollection.menuCancelAriaLabel": "გაუქმება",
+    "coreUploadCollection.formItemPlaceholder": "ფაილი"
+}

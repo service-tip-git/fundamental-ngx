@@ -1,33 +1,14 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { BooleanInput, coerceArray, coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    Inject,
-    Input,
-    OnChanges,
-    OnDestroy,
-    OnInit,
-    Optional,
-    Output,
-    QueryList,
-    SimpleChanges,
-    TemplateRef,
-    ViewChild,
-    ViewChildren,
-    ViewEncapsulation
-} from '@angular/core';
-import { firstValueFrom, Observable, Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnDestroy, OnInit, Optional, Output, QueryList, SimpleChanges, TemplateRef, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 
 import { FocusKeyManagerItemDirective, FocusKeyManagerListDirective, RtlService } from '@fundamental-ngx/cdk/utils';
 
 import { Pagination } from './pagination.model';
 import { PaginationService } from './pagination.service';
-import { FD_LANGUAGE, FdLanguage, TranslationResolver } from '@fundamental-ngx/i18n';
+import { provideDefaultTranslations, TranslationService } from '@fundamental-ngx/i18n';
 import { ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
 
 /** Constant representing the default number of items per page. */
@@ -54,7 +35,11 @@ let paginationUniqueId = 0;
 @Component({
     selector: 'fd-pagination',
     templateUrl: './pagination.component.html',
-    providers: [PaginationService, contentDensityObserverProviders()],
+    providers: [
+        PaginationService,
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ],
     host: {
         class: 'fd-pagination',
         '[class.fd-pagination--mobile]': 'mobile',
@@ -239,14 +224,13 @@ export class PaginationComponent implements OnChanges, OnInit, OnDestroy {
     private _subscriptions = new Subscription();
 
     /** @hidden */
-    private _translationResolver = new TranslationResolver();
+    private _translationService = inject(TranslationService);
 
     /** @hidden */
     constructor(
         private readonly paginationService: PaginationService,
         private readonly _cdr: ChangeDetectorRef,
         private readonly _liveAnnouncer: LiveAnnouncer,
-        @Inject(FD_LANGUAGE) private readonly _language: Observable<FdLanguage>,
         @Optional() private readonly _rtlService: RtlService,
         readonly _contentDensityObserver: ContentDensityObserver
     ) {}
@@ -410,8 +394,7 @@ export class PaginationComponent implements OnChanges, OnInit, OnDestroy {
     /** @hidden */
     private async _announcePage(page: number): Promise<void> {
         await this._liveAnnouncer.announce(
-            this._translationResolver.resolve(
-                await firstValueFrom(this._language),
+            this._translationService.translate(
                 'corePagination.currentPageAriaLabel',
                 {
                     pageNumber: page,

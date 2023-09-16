@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "Ok",
+    "coreUploadCollection.menuCancelText": "Annulla",
+    "coreUploadCollection.menuEditAriaLabel": "Modifica",
+    "coreUploadCollection.menuDeleteAriaLabel": "Elimina",
+    "coreUploadCollection.menuOkAriaLabel": "Modifica",
+    "coreUploadCollection.menuCancelAriaLabel": "Annulla",
+    "coreUploadCollection.formItemPlaceholder": "Nome file"
+}

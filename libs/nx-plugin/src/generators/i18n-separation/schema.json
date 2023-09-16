@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "i18n-separation",
+    "type": "object",
+    "properties": {
+    }
+}

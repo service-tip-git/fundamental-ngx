@@ -25,6 +25,7 @@ import { SelectComponent as CoreSelect, SelectModule } from '@fundamental-ngx/co
 import { PlatformFormField, PlatformFormFieldControl } from '@fundamental-ngx/platform/shared';
 import { BaseSelect } from '../commons/base-select';
 import { SelectConfig } from '../select.config';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fdp-select',
@@ -32,7 +33,11 @@ import { SelectConfig } from '../select.config';
     styleUrls: ['./select.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    providers: [DynamicComponentService, { provide: FD_FORM_FIELD_CONTROL, useExisting: SelectComponent, multi: true }],
+    providers: [
+        DynamicComponentService,
+        { provide: FD_FORM_FIELD_CONTROL, useExisting: SelectComponent, multi: true },
+        provideDefaultTranslations(() => import('../i18n').then((m) => m.i18n))
+    ],
     standalone: true,
     imports: [SelectModule, FormsModule, NgIf, NgFor, IconModule, NgTemplateOutlet, NgClass, ListSecondaryDirective]
 })

@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "दिनांक इनपुट",
+    "coreDatePicker.dateRangeInputLabel": "दिनांक सीमा इनपुट",
+    "coreDatePicker.displayCalendarToggleLabel": "पिकर खोलें",
+    "coreDatePicker.valueStateSuccessMessage": "मूल्य स्थिति सफल",
+    "coreDatePicker.valueStateInformationMessage": "मूल्य स्थिति सूचना",
+    "coreDatePicker.valueStateWarningMessage": "मूल्य स्थिति चेतावनी",
+    "coreDatePicker.valueStateErrorMessage": "मूल्य स्थिति गलती"
+}

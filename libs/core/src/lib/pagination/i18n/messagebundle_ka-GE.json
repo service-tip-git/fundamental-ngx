@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "გვერდი {pageNumber}",
+    "corePagination.currentPageAriaLabel": "მიმდინარე გვერდია {pageNumber}",
+    "corePagination.labelBeforeInputMobile": "გვერდი:",
+    "corePagination.labelAfterInputMobile": "{totalCount}-დან",
+    "corePagination.inputAriaLabel": "გვერდის ველი, მიმდინარე გვერდი, გვერდი {pageNumber} {totalCount}-დან",
+    "corePagination.itemsPerPageLabel": "შედეგები გვერდზე:",
+    "corePagination.firstLabel": "პირველი",
+    "corePagination.previousLabel": "წინა",
+    "corePagination.nextLabel": "შემდეგი",
+    "corePagination.lastLabel": "ბოლო",
+    "corePagination.ariaLabel": "გვერდები",
+    "corePagination.totalResultsLabel": "სულ {totalCount} შედეგი"
+}

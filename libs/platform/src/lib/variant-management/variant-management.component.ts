@@ -25,6 +25,7 @@ import { VariantManagement } from './models/variant-management';
 import { NewVariant, Variant } from './models/variant.interface';
 import { FDP_VARIANT_MANAGEMENT } from './tokens';
 import { VariantItem } from './variant-item.class';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fdp-variant-management',
@@ -36,7 +37,8 @@ import { VariantItem } from './variant-item.class';
         {
             provide: FDP_VARIANT_MANAGEMENT,
             useExisting: VariantManagementComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class VariantManagementComponent<T = any> implements VariantManagement<T> {

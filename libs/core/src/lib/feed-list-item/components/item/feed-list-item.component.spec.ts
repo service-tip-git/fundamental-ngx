@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FeedListItemComponent } from './feed-list-item.component';
 import { PipeModule } from '@fundamental-ngx/cdk/utils';
 import { LinkModule } from '@fundamental-ngx/core/link';
-import { FD_LANGUAGE, FD_LANGUAGE_ENGLISH, I18nModule } from '@fundamental-ngx/i18n';
-import { of } from 'rxjs';
+import { I18nModule, patchLanguage, provideTranslator } from '@fundamental-ngx/i18n';
 
 const componentClassPrefix = 'fd-feed-list__item';
 
@@ -21,13 +20,15 @@ describe('FeedListItemComponent', () => {
             declarations: [FeedListItemComponent],
             imports: [PipeModule, LinkModule, I18nModule],
             providers: [
-                {
-                    provide: FD_LANGUAGE,
-                    useValue: of({
-                        ...FD_LANGUAGE_ENGLISH,
-                        coreFeedListItem: { ...FD_LANGUAGE_ENGLISH.coreFeedListItem, moreLabel, lessLabel }
-                    })
-                }
+                provideTranslator(),
+                patchLanguage({
+                    coreFeedListItem: {
+                        moreLabel, lessLabel
+                    }
+                })
+            ],
+            schemas: [
+                CUSTOM_ELEMENTS_SCHEMA
             ]
         })
             .overrideComponent(FeedListItemComponent, {

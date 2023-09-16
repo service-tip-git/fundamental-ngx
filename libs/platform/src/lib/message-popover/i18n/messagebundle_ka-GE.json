@@ -1,0 +1,11 @@
+{
+    "platformMessagePopover.allErrors": "ყველა",
+    "platformMessagePopover.defaultErrors.email": "ელ-ფოსტა არასწორია",
+    "platformMessagePopover.defaultErrors.max": "ველის მნიშვნელობა აღემატება დაშვებულ მაქსიმუმს",
+    "platformMessagePopover.defaultErrors.maxLength": "ველის მოცულობა აღემატება დაშვებულ მაქსიმუმს",
+    "platformMessagePopover.defaultErrors.min": "ველის მნიშვნელობა აუცილებელ მინიმუმზე ნაკლებია",
+    "platformMessagePopover.defaultErrors.minLength": "ველის მოცულობა აუცილებელ მინიმუმზე ნაკლებია",
+    "platformMessagePopover.defaultErrors.pattern": "ველის მნიშვნელობა არასწორია",
+    "platformMessagePopover.defaultErrors.required": "ველი სავალდებულოა",
+    "platformMessagePopover.defaultErrors.requiredTrue": "ველის შეყვანა სავალდებულოა"
+}

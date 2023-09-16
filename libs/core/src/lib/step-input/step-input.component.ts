@@ -27,6 +27,7 @@ import { ContentDensityObserver, contentDensityObserverProviders } from '@fundam
 import { FormItemControl, registerFormItemControl } from '@fundamental-ngx/core/form';
 import NumberFormat = Intl.NumberFormat;
 import { FormStates } from '@fundamental-ngx/cdk/forms';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let stepInputUniqueId = 0;
 
@@ -43,7 +44,8 @@ let stepInputUniqueId = 0;
             multi: true
         },
         contentDensityObserverProviders(),
-        registerFormItemControl(StepInputComponent)
+        registerFormItemControl(StepInputComponent),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     host: {
         class: 'fd-step-input__container',

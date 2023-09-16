@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "Ok",
+    "coreUploadCollection.menuCancelText": "Zrušit",
+    "coreUploadCollection.menuEditAriaLabel": "Upravit",
+    "coreUploadCollection.menuDeleteAriaLabel": "Smazat",
+    "coreUploadCollection.menuOkAriaLabel": "Upravit",
+    "coreUploadCollection.menuCancelAriaLabel": "Zrušit",
+    "coreUploadCollection.formItemPlaceholder": "Název souboru"
+}

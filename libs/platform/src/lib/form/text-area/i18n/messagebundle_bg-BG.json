@@ -1,0 +1,6 @@
+{
+    "platformTextarea.counterMessageCharactersOverTheLimitSingular": "1 символ над ограничението",
+    "platformTextarea.counterMessageCharactersOverTheLimitPlural": "{count} символи над ограничението",
+    "platformTextarea.counterMessageCharactersRemainingSingular": "Остава 1 символ",
+    "platformTextarea.counterMessageCharactersRemainingPlural": "Остават {count} символи"
+}

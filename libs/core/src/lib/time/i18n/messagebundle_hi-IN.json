@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "समय चुनने वाला",
+    "coreTime.increaseHoursLabel": "घंटे बढ़ाएँ",
+    "coreTime.hoursLabel": "घंटे",
+    "coreTime.decreaseHoursLabel": "घंटे घटाएं",
+    "coreTime.increaseMinutesLabel": "मिनट बढ़ाएँ",
+    "coreTime.minutesLabel": "मिनट",
+    "coreTime.decreaseMinutesLabel": "मिनट घटाएं",
+    "coreTime.increaseSecondsLabel": "सेकंड बढ़ाएँ",
+    "coreTime.secondsLabel": "सेकंड",
+    "coreTime.decreaseSecondsLabel": "सेकंड घटाएं",
+    "coreTime.increasePeriodLabel": "अवधि बढ़ाएँ",
+    "coreTime.periodLabel": "अवधि",
+    "coreTime.decreasePeriodLabel": "अवधि घटाएं",
+    "coreTime.navigationInstruction": "इस सूची में वस्तुओं के बीच जाने के लिए, ऊपर तीर या निचला तीर दबाएं। सूचियों के बीच स्विच करने के लिए बायाँ तीर या दायाँ तीर दबाएँ।"
+}

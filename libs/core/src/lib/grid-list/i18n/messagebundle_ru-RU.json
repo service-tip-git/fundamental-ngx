@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Отмена",
+    "coreGridList.listItemStatusAriaLabel": "Элемент имеет статус. Статус: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Элемент имеет { count, plural, one {1 дочерний элемент} few {# дочерних элемента} other {# дочерних элементов} }.",
+    "coreGridList.listItemButtonDetailsTitle": "Подробности",
+    "coreGridList.listItemButtonDeleteTitle": "Удалить",
+    "coreGridList.listItemStatusContainsErrors": "Содержит ошибки",
+    "coreGridList.listItemStatusLocked": "Заблокировано",
+    "coreGridList.listItemStatusDraft": "Черновик"
+}

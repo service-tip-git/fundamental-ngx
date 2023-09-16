@@ -10,13 +10,17 @@ import {
     Renderer2,
     ElementRef
 } from '@angular/core';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 @Component({
     selector: 'fdp-feed-input',
     templateUrl: './feed-input.component.html',
     styleUrls: ['./feed-input.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class FeedInputComponent implements AfterViewInit {
     /** The user image source, If is not set, then the user image will display placeholder image.  */

@@ -46,7 +46,7 @@ import { InputGroupModule } from '@fundamental-ngx/core/input-group';
 import { ListModule, ListSecondaryDirective } from '@fundamental-ngx/core/list';
 import { PopoverBodyComponent, PopoverComponent, PopoverControlComponent } from '@fundamental-ngx/core/popover';
 import { TokenComponent, TokenizerComponent, TokenizerInputDirective } from '@fundamental-ngx/core/token';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { AutoCompleteDirective, AutoCompleteEvent } from '../../auto-complete/auto-complete.directive';
 import { BaseMultiCombobox, MAP_LIMIT } from '../commons/base-multi-combobox';
 import { PlatformMultiComboboxMobileModule } from '../multi-combobox-mobile/multi-combobox-mobile.module';
@@ -76,7 +76,8 @@ let deprecationWarningShown = false;
             useExisting: MultiComboboxComponent,
             multi: true
         },
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('../i18n').then((m) => m.i18n))
     ],
     standalone: true,
     imports: [

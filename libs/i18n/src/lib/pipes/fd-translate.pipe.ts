@@ -1,9 +1,10 @@
 import { ChangeDetectorRef, DestroyRef, inject, Pipe, PipeTransform } from '@angular/core';
-import { BehaviorSubject, combineLatest, distinctUntilChanged, filter, skip, switchMap } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FdLanguageKeyArgs } from '../models/lang';
 import { TranslationService } from '../translation.service';
+import deepEqual from 'fast-deep-equal';
 
 @Pipe({
     name: 'fdTranslate',
@@ -12,43 +13,44 @@ import { TranslationService } from '../translation.service';
 })
 export class FdTranslatePipe implements PipeTransform {
     /** @hidden */
-    private readonly _key$ = new BehaviorSubject<string | undefined>(undefined);
-
-    /** @hidden */
-    private readonly _args$ = new BehaviorSubject<FdLanguageKeyArgs | undefined>(undefined);
-
-    /** @hidden */
     private _value: string;
 
     /** @hidden */
     private _translationService = inject(TranslationService);
 
     /** @hidden */
-    constructor(private readonly _destroyRef: DestroyRef, private _cdr: ChangeDetectorRef) {
-        this._instantiateSubscription();
-    }
-
-    /** Translate a key with arguments and, optionally, default value */
-    transform(key: string, args?: FdLanguageKeyArgs | Record<string, any>, defaultValue = ''): string {
-        this._key$.next(key);
-        this._args$.next(args);
-
-        return this._value === key ? defaultValue : this._value;
-    }
+    private _subscription: Subscription;
 
     /** @hidden */
-    private _instantiateSubscription(): void {
-        combineLatest([
-            this._key$.pipe(skip(1), filter(Boolean), distinctUntilChanged()),
-            this._args$.pipe(skip(1), distinctUntilChanged())
-        ])
-            .pipe(
-                switchMap(([key, args]) => this._translationService.translate$(key, args)),
-                takeUntilDestroyed(this._destroyRef)
-            )
-            .subscribe((value) => {
-                this._value = value;
-                this._cdr.markForCheck();
-            });
+    private readonly _destroyRef: DestroyRef = inject(DestroyRef);
+
+    /** @hidden */
+    private _cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+    /** @hidden */
+    private _previousKey: string;
+    private _previousArgs: FdLanguageKeyArgs | Record<string, any>;
+
+    /** Translate a key with arguments and, optionally, default value */
+    transform(key: string, args: FdLanguageKeyArgs | Record<string, any> = {}, defaultValue = ''): string {
+        if (this._previousKey !== key || !deepEqual(this._previousArgs, args)) {
+            this._previousKey = key;
+            this._previousArgs = args;
+            if (this._subscription) {
+                this._subscription.unsubscribe();
+            }
+            this._subscription = this._translationService
+                .translate$(key, args)
+                .pipe(
+                    filter((value) => value !== this._value),
+                    takeUntilDestroyed(this._destroyRef)
+                )
+                .subscribe((value) => {
+                    this._value = value;
+                    this._cdr.markForCheck();
+                });
+        }
+
+        return this._value === key ? defaultValue : this._value;
     }
 }

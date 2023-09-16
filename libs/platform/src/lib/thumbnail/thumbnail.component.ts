@@ -18,6 +18,7 @@ import { BaseComponent } from '@fundamental-ngx/platform/shared';
 import { ThumbnailDetailsComponent } from './thumbnail-details/thumbnail-details.component';
 import { ThumbnailImageComponent } from './thumbnail-image/thumbnail-image.component';
 import { Media } from './thumbnail.interfaces';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let uniqueId = 0;
 
@@ -42,7 +43,10 @@ export class ThumbnailClickedEvent<T extends ThumbnailComponent = ThumbnailCompo
     selector: 'fdp-thumbnail',
     templateUrl: './thumbnail.component.html',
     styleUrls: ['./thumbnail.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
+    ]
 })
 export class ThumbnailComponent extends BaseComponent implements OnInit {
     /** List of media objects to display. */

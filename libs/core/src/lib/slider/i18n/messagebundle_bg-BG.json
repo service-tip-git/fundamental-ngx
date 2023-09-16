@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Минималната стойност на плъзгача е {min}, максималната стойност е {max}",
+    "coreSlider.singleValueminDetails": "Стойността е {value}",
+    "coreSlider.singleValuemaxDetails": "Стойността е {value}",
+    "coreSlider.singleValueNowDetails": "Текущата стойност е {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Минималната стойност на плъзгача за обхват е {min}, максималната стойност е {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Стойността е {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Стойността е {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Текущата стойност е {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Минималната стойност на плъзгача за обхват е {min}, максималната стойност е {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Стойността е {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Стойността е {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Текущата стойност е {value}"
+}

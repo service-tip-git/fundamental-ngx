@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormLabelComponent } from '@fundamental-ngx/core/form';
-import { FdLanguagePatch, FdPatchLanguageDirective, provideTranslations } from '@fundamental-ngx/i18n';
+import { FdLanguagePatch, FdPatchLanguageDirective } from '@fundamental-ngx/i18n';
 import { PlatformTextAreaModule } from '@fundamental-ngx/platform/form';
 import { TranslationWrapper1Component } from './translation-wrapper-1.component';
 import { TranslationWrapper2Component } from './translation-wrapper-2.component';
@@ -16,26 +16,6 @@ import { TranslationWrapper2Component } from './translation-wrapper-2.component'
         FdPatchLanguageDirective,
         TranslationWrapper1Component,
         TranslationWrapper2Component
-    ],
-    providers: [
-        provideTranslations({
-            'en-US': {
-                counterMessageCharactersOverTheLimitSingular: '1 znak powyżej limitu',
-                counterMessageCharactersRemainingSingular: 'Pozostał 1 znak',
-                counterMessageCharactersRemainingPlural: (params) => {
-                    console.log('WTF?!');
-                    switch (+params.count) {
-                        case 10:
-                            return 'Pozostało dziesięć znaków';
-                        case 9:
-                            return 'Pozostało dziewięć znaków';
-                        case 8:
-                            return 'Pozostało osiem znaków';
-                    }
-                    return `Pozostało ${params.count} znaków`;
-                }
-            }
-        })
     ]
 })
 export class PlatformI18nTranslationCustomizationExampleComponent {

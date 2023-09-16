@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Zgjedhësi i kohës",
+    "coreTime.increaseHoursLabel": "Rritja e orëve",
+    "coreTime.hoursLabel": "Hrs",
+    "coreTime.decreaseHoursLabel": "Ul oraret",
+    "coreTime.increaseMinutesLabel": "Rritja e minutave",
+    "coreTime.minutesLabel": "Min",
+    "coreTime.decreaseMinutesLabel": "Zvogëlo minutat",
+    "coreTime.increaseSecondsLabel": "Rritja e sekondave",
+    "coreTime.secondsLabel": "Sec",
+    "coreTime.decreaseSecondsLabel": "Ul sekonda",
+    "coreTime.increasePeriodLabel": "Rritja e periudhës",
+    "coreTime.periodLabel": "Periudha",
+    "coreTime.decreasePeriodLabel": "Periudha e zvogëlimit",
+    "coreTime.navigationInstruction": "Për të lëvizur midis artikujve në këtë listë, shtypni shigjetën lart ose shigjetën e poshtme. Për të kaluar midis listave, shtypni shigjetën majtas ose shigjetën djathtas."
+}

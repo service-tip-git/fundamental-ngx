@@ -1,0 +1,23 @@
+{
+    "platformVariantManagement.manage": "Manage",
+    "platformVariantManagement.saveAs": "Save as",
+    "platformVariantManagement.saveView": "Save View",
+    "platformVariantManagement.save": "Save",
+    "platformVariantManagement.myViews": "My Views",
+    "platformVariantManagement.view": "View",
+    "platformVariantManagement.setAsDefault": "Set as Default",
+    "platformVariantManagement.public": "Public",
+    "platformVariantManagement.applyAutomatically": "Apply Automatically",
+    "platformVariantManagement.requiredFieldError": "This field is required.",
+    "platformVariantManagement.nameTakenFieldError": "Variant with such name already exists. Please chose a different name.",
+    "platformVariantManagement.cancel": "Cancel",
+    "platformVariantManagement.manageViews": "Manage Views",
+    "platformVariantManagement.markAsFavourite": "Mark as Favourite",
+    "platformVariantManagement.sharing": "Sharing",
+    "platformVariantManagement.default": "Default",
+    "platformVariantManagement.createdBy": "Created By",
+    "platformVariantManagement.removeVariant": "Remove View",
+    "platformVariantManagement.search": "Search",
+    "platformVariantManagement.access.public": "Public",
+    "platformVariantManagement.access.private": "Private"
+}

@@ -1,0 +1,14 @@
+{
+    "corePagination.pageLabel": "Strona {pageNumber}",
+    "corePagination.currentPageAriaLabel": "Aktualna strona {pageNumber}",
+    "corePagination.labelBeforeInputMobile": "Strona:",
+    "corePagination.labelAfterInputMobile": "z {totalCount}",
+    "corePagination.inputAriaLabel": "Dane strony, Aktualna strona, Strona {pageNumber} z {totalCount}",
+    "corePagination.itemsPerPageLabel": "Liczba wyników na stronę:",
+    "corePagination.firstLabel": "Pierwszy",
+    "corePagination.previousLabel": "Poprzedni",
+    "corePagination.nextLabel": "Następny",
+    "corePagination.lastLabel": "Ostatni",
+    "corePagination.ariaLabel": "Stronicowanie",
+    "corePagination.totalResultsLabel": "Liczba wyników: {totalCount}"
+}

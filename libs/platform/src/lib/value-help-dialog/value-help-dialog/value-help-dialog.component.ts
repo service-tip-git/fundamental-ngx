@@ -38,6 +38,7 @@ import {
 import { VhdFilterComponent } from '../components/value-help-dialog-filter/value-help-dialog-filter.component';
 import { defaultConditionDisplayFn } from '../constans/condition-display.function';
 import { cloneDeep } from 'lodash-es';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export type FdpValueHelpDialogDataSource<T> =
     | ValueHelpDialogDataSource<T>
@@ -51,7 +52,10 @@ let vhiUniqueId = 0;
     templateUrl: './value-help-dialog.component.html',
     styleUrls: ['./value-help-dialog.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        provideDefaultTranslations(() => import('../i18n').then((m) => m.i18n))
+    ]
 })
 export class PlatformValueHelpDialogComponent<T = any> implements OnChanges, OnDestroy {
     /** Id of the popover */

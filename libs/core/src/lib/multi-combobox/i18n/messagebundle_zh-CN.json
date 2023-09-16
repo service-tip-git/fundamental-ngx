@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "选择全部（{selectedItems}，共 {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "选择选项",
+    "coreMultiCombobox.inputIconTitle": "选择选项",
+    "coreMultiCombobox.mobileShowAllItemsButton": "显示所有项",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "显示选定的项"
+}

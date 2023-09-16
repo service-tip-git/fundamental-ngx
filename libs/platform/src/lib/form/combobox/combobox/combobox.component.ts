@@ -39,7 +39,7 @@ import { FormInputMessageGroupComponent, FormMessageComponent } from '@fundament
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
 import { ListModule, ListSecondaryDirective } from '@fundamental-ngx/core/list';
 import { PopoverBodyComponent, PopoverComponent, PopoverControlComponent } from '@fundamental-ngx/core/popover';
-import { FdTranslatePipe } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import { AutoCompleteDirective } from '../../auto-complete/auto-complete.directive';
 import { PlatformComboboxMobileModule } from '../combobox-mobile/combobox-mobile.module';
 import { ComboboxMobileComponent } from '../combobox-mobile/combobox/combobox-mobile.component';
@@ -67,7 +67,8 @@ export class ComboboxSelectionChangeEvent {
     encapsulation: ViewEncapsulation.None,
     providers: [
         { provide: FD_FORM_FIELD_CONTROL, useExisting: ComboboxComponent, multi: true },
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('../i18n').then((m) => m.i18n))
     ],
     standalone: true,
     imports: [

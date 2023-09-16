@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "时间选择器",
+    "coreTime.increaseHoursLabel": "加一小时",
+    "coreTime.hoursLabel": "小时",
+    "coreTime.decreaseHoursLabel": "减一小时",
+    "coreTime.increaseMinutesLabel": "加一分钟",
+    "coreTime.minutesLabel": "分钟",
+    "coreTime.decreaseMinutesLabel": "减一分钟",
+    "coreTime.increaseSecondsLabel": "加一秒",
+    "coreTime.secondsLabel": "秒",
+    "coreTime.decreaseSecondsLabel": "减一秒",
+    "coreTime.increasePeriodLabel": "更换时间范围",
+    "coreTime.periodLabel": "时间范围",
+    "coreTime.decreasePeriodLabel": "更换时间范围",
+    "coreTime.navigationInstruction": "按上下方向键在列表中的项之间移动。按左右方向键切换列表。"
+}

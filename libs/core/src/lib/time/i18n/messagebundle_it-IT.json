@@ -1,0 +1,16 @@
+{
+    "coreTime.componentAriaName": "Selettore tempo",
+    "coreTime.increaseHoursLabel": "Aumenta le ore",
+    "coreTime.hoursLabel": "Ore",
+    "coreTime.decreaseHoursLabel": "Diminuisci ore",
+    "coreTime.increaseMinutesLabel": "Aumenta minuti",
+    "coreTime.minutesLabel": "Minimo",
+    "coreTime.decreaseMinutesLabel": "Diminuisci minuti",
+    "coreTime.increaseSecondsLabel": "Aumenta i secondi",
+    "coreTime.secondsLabel": "Sec",
+    "coreTime.decreaseSecondsLabel": "Diminuisci secondi",
+    "coreTime.increasePeriodLabel": "Aumento periodo",
+    "coreTime.periodLabel": "Periodo",
+    "coreTime.decreasePeriodLabel": "Diminuisci periodo",
+    "coreTime.navigationInstruction": "Per spostarti tra gli elementi di questo elenco, premi la freccia in alto o in basso. Per passare da un elenco all'altro, premere la freccia sinistra o la freccia destra."
+}

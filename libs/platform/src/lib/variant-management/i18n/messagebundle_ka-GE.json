@@ -1,0 +1,23 @@
+{
+    "platformVariantManagement.manage": "მართვა",
+    "platformVariantManagement.saveAs": "შენახვა როგორც",
+    "platformVariantManagement.saveView": "ვარიანტის შენახვა",
+    "platformVariantManagement.save": "შენახვა",
+    "platformVariantManagement.myViews": "ჩემი ვარიანტები",
+    "platformVariantManagement.view": "ვარიანტი",
+    "platformVariantManagement.setAsDefault": "ნაგულისხმევად გამოყენება",
+    "platformVariantManagement.public": "საჯარო",
+    "platformVariantManagement.applyAutomatically": "ავტომატურად გამოყენება",
+    "platformVariantManagement.requiredFieldError": "ეს ველი სავალდებულოა.",
+    "platformVariantManagement.nameTakenFieldError": "ვარიანტი ამ სახელით უკვე არსებობს. გთხოვთ, გამოიყენოთ სხვა სახელი.",
+    "platformVariantManagement.cancel": "გაუქმება",
+    "platformVariantManagement.manageViews": "ვარიანტების მართვა",
+    "platformVariantManagement.markAsFavourite": "ფავორიტად მონიშვნა",
+    "platformVariantManagement.sharing": "ხილვადობა",
+    "platformVariantManagement.default": "ნაგულისხმევი",
+    "platformVariantManagement.createdBy": "შემქმნელი",
+    "platformVariantManagement.removeVariant": "ვარიანტის წაშლა",
+    "platformVariantManagement.search": "ძებნა",
+    "platformVariantManagement.access.public": "საჯარო",
+    "platformVariantManagement.access.private": "პირადი"
+}

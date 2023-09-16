@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "取消",
+    "coreGridList.listItemStatusAriaLabel": "列表项的状态：{status}。",
+    "coreGridList.listItemCounterAriaLabel": "列表项有{count}个子项。",
+    "coreGridList.listItemButtonDetailsTitle": "详情",
+    "coreGridList.listItemButtonDeleteTitle": "删除",
+    "coreGridList.listItemStatusContainsErrors": "有错误",
+    "coreGridList.listItemStatusLocked": "被锁定",
+    "coreGridList.listItemStatusDraft": "拟稿"
+}

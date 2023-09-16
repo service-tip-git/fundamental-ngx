@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Мінімальне значення слайдера {min}, максимальне значення {max}",
+    "coreSlider.singleValueminDetails": "Поточне значення: {value}",
+    "coreSlider.singleValuemaxDetails": "Поточне значення: {value}",
+    "coreSlider.singleValueNowDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Мінімальне значення слайдера {min}, максимальне значення {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Мінімальне значення слайдера {min}, максимальне значення {max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Поточне значення: {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Поточне значення: {value}"
+}

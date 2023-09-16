@@ -31,6 +31,7 @@ import { InputGroupInputDirective } from '@fundamental-ngx/core/input-group';
 import { createMissingDateImplementationError } from './errors';
 import { Nullable } from '@fundamental-ngx/cdk/utils';
 import { FormStates } from '@fundamental-ngx/cdk/forms';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 let timePickerCounter = 0;
 
@@ -55,7 +56,8 @@ let timePickerCounter = 0;
         },
         PopoverFormMessageService,
         PopoverService,
-        registerFormItemControl(TimePickerComponent)
+        registerFormItemControl(TimePickerComponent),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     styleUrls: ['./time-picker.component.scss'],
     encapsulation: ViewEncapsulation.None,

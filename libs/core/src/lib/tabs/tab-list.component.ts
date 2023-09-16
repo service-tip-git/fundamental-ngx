@@ -33,6 +33,7 @@ import { TabListComponentInterface } from './tab-list-component.interface';
 import { LIST_COMPONENT } from './tab-list.token';
 import { TabPanelComponent } from './tab-panel/tab-panel.component';
 import { TabInfo } from './tab-utils/tab-info.class';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 export type TabModes = 'icon-only' | 'process' | 'filter';
 
@@ -55,7 +56,8 @@ export type TabSizes = 's' | 'm' | 'l' | 'xl' | 'xxl';
         {
             provide: LIST_COMPONENT,
             useExisting: forwardRef(() => TabListComponent)
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ]
 })
 export class TabListComponent implements TabListComponentInterface, AfterContentInit, AfterViewInit, OnDestroy {

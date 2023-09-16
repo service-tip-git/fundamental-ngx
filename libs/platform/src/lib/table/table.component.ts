@@ -108,6 +108,7 @@ import equal from 'fast-deep-equal';
 import { BehaviorSubject, fromEvent, Observable, of, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, startWith, switchMap, take, tap } from 'rxjs/operators';
 import { TABLE_TOOLBAR, TableToolbarInterface } from './components';
+import { provideDefaultTranslations } from "@fundamental-ngx/i18n";
 
 interface ToolbarContext {
     counter: Observable<number>;
@@ -168,7 +169,8 @@ let tableUniqueId = 0;
         {
             provide: FDP_PRESET_MANAGED_COMPONENT,
             useExisting: TableComponent
-        }
+        },
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     hostDirectives: [
         {

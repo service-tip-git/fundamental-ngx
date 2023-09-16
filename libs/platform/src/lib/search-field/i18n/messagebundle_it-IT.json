@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "Cancella",
+    "platformSearchField.submitButtonTitle": "Cerca",
+    "platformSearchField.searchInputLabel": "Cerca",
+    "platformSearchField.synchronizeButtonTitle": "Sincronizza",
+    "platformSearchField.searchSuggestionMessage": "{count} suggerimenti trovati.",
+    "platformSearchField.searchSuggestionNavigateMessage": "usa le frecce su e giù per navigare"
+}

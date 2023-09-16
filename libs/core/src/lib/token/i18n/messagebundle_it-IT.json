@@ -1,0 +1,5 @@
+{
+  "coreToken.deleteButtonLabel": "Cancellabile",
+  "coreToken.ariaRoleDescription": "gettone",
+  "coreTokenizer.moreLabel": "{ count, plural, one {1 più} other {Altri #} } articoli"
+}

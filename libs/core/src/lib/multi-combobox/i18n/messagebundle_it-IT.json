@@ -1,0 +1,7 @@
+{
+    "coreMultiComboBox.selectAllLabel": "Seleziona tutto ({selectedItems} di {totalItems})",
+    "coreMultiCombobox.inputGlyphAriaLabel": "Seleziona Opzioni",
+    "coreMultiCombobox.inputIconTitle": "Seleziona Opzioni",
+    "coreMultiCombobox.mobileShowAllItemsButton": "Mostra tutti gli articoli",
+    "coreMultiCombobox.mobileShowSelectedItemsButton": "Mostra gli articoli selezionati"
+}

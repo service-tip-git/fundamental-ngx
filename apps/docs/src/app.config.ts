@@ -6,9 +6,8 @@ import { provideFdkClicked } from '@fundamental-ngx/cdk/utils';
 import { provideContentDensity } from '@fundamental-ngx/core/content-density';
 import { provideTheming } from '@fundamental-ngx/core/theming';
 import { DocsService, LERNA_JSON, PACKAGE_JSON } from '@fundamental-ngx/docs/shared';
-import { FD_LANGUAGE, FD_LANGUAGE_ENGLISH, ngxLocaleToTranslations, provideTranslator } from '@fundamental-ngx/i18n';
+import { provideTranslator } from '@fundamental-ngx/i18n';
 import { MarkdownModule } from 'ngx-markdown';
-import { BehaviorSubject } from 'rxjs';
 import lernaJson from '../../../lerna.json';
 import packageJson from '../../../package.json';
 import { ROUTES as applicationRoutes } from './environments/app.routes';
@@ -30,11 +29,7 @@ export const appConfig: ApplicationConfig = {
             provide: LERNA_JSON,
             useValue: lernaJson
         },
-        {
-            provide: FD_LANGUAGE,
-            useValue: new BehaviorSubject(FD_LANGUAGE_ENGLISH)
-        },
-        importProvidersFrom(MarkdownModule.forRoot({ loader: HttpClient })),
-        provideTranslator(ngxLocaleToTranslations, 'en-US')
+        provideTranslator(),
+        importProvidersFrom(MarkdownModule.forRoot({ loader: HttpClient }))
     ]
 };

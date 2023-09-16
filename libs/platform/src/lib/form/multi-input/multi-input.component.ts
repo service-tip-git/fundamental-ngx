@@ -1,66 +1,23 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { DOWN_ARROW, ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    Host,
-    Inject,
-    Injector,
-    Input,
-    OnInit,
-    Optional,
-    Output,
-    QueryList,
-    Self,
-    SkipSelf,
-    TemplateRef,
-    ViewChild,
-    ViewChildren,
-    ViewContainerRef,
-    ViewEncapsulation,
-    forwardRef
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Host, Inject, Injector, Input, OnInit, Optional, Output, QueryList, Self, SkipSelf, TemplateRef, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { ControlContainer, FormsModule, NgControl, NgForm } from '@angular/forms';
 import { FD_FORM_FIELD, FD_FORM_FIELD_CONTROL } from '@fundamental-ngx/cdk/forms';
 
 import { DisplayFnPipe, DynamicComponentService, InitialFocusDirective, KeyUtil } from '@fundamental-ngx/cdk/utils';
 import { DialogConfig } from '@fundamental-ngx/core/dialog';
 import { TokenComponent, TokenizerComponent, TokenizerInputDirective } from '@fundamental-ngx/core/token';
-import {
-    BaseListItem,
-    ListComponent,
-    ModifyItemEvent,
-    PlatformListModule,
-    SelectionType,
-    StandardListItemModule
-} from '@fundamental-ngx/platform/list';
-import {
-    DATA_PROVIDERS,
-    DataProvider,
-    MultiInputDataSource,
-    MultiInputOption,
-    PlatformFormField,
-    PlatformFormFieldControl,
-    isFunction
-} from '@fundamental-ngx/platform/shared';
+import { BaseListItem, ListComponent, ModifyItemEvent, PlatformListModule, SelectionType, StandardListItemModule } from '@fundamental-ngx/platform/list';
+import { DATA_PROVIDERS, DataProvider, isFunction, MultiInputDataSource, MultiInputOption, PlatformFormField, PlatformFormFieldControl } from '@fundamental-ngx/platform/shared';
 
 import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import {
-    ContentDensityModule,
-    ContentDensityObserver,
-    contentDensityObserverProviders
-} from '@fundamental-ngx/core/content-density';
+import { ContentDensityModule, ContentDensityObserver, contentDensityObserverProviders } from '@fundamental-ngx/core/content-density';
 import { FormControlModule } from '@fundamental-ngx/core/form';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
 import { PopoverBodyComponent, PopoverComponent, PopoverControlComponent } from '@fundamental-ngx/core/popover';
 import { PopoverFillMode } from '@fundamental-ngx/core/shared';
-import { FD_LANGUAGE, FdLanguage, TranslationResolver } from '@fundamental-ngx/i18n';
+import { FdTranslatePipe, provideDefaultTranslations } from '@fundamental-ngx/i18n';
 import equal from 'fast-deep-equal';
-import { Observable, firstValueFrom } from 'rxjs';
 import { AutoCompleteDirective, AutoCompleteEvent } from '../auto-complete/auto-complete.directive';
 import { InputType } from '../input/input.component';
 import { BaseMultiInput } from './base-multi-input';
@@ -95,7 +52,8 @@ export class MultiInputSelectionChangeEvent {
             useExisting: forwardRef(() => PlatformMultiInputComponent),
             multi: true
         },
-        contentDensityObserverProviders()
+        contentDensityObserverProviders(),
+        provideDefaultTranslations(() => import('./i18n').then((m) => m.i18n))
     ],
     standalone: true,
     imports: [
@@ -116,7 +74,8 @@ export class MultiInputSelectionChangeEvent {
         PlatformListModule,
         StandardListItemModule,
         DisplayFnPipe,
-        ContentDensityModule
+        ContentDensityModule,
+        FdTranslatePipe
     ]
 })
 export class PlatformMultiInputComponent extends BaseMultiInput implements OnInit, AfterViewInit {
@@ -230,9 +189,6 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
     private readonly _listItems: QueryList<BaseListItem>;
 
     /** @hidden */
-    private readonly _translationResolver = new TranslationResolver();
-
-    /** @hidden */
     constructor(
         /** @hidden */
         readonly cd: ChangeDetectorRef,
@@ -260,8 +216,6 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
         /** @hidden */
         @Optional() @SkipSelf() @Host() @Inject(FD_FORM_FIELD_CONTROL) formControl: PlatformFormFieldControl,
         readonly contentDensityObserver: ContentDensityObserver,
-        /** @hidden */
-        @Inject(FD_LANGUAGE) private readonly _language: Observable<FdLanguage>
     ) {
         super(
             cd,
@@ -292,8 +246,6 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
         if (!this.dataSource && this.entityClass && providers?.has(this.entityClass)) {
             this.dataSource = new MultiInputDataSource(providers.get(this.entityClass)!);
         }
-
-        this._getAriaLabel();
     }
 
     /** @hidden */
@@ -539,11 +491,5 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
             this._viewContainerRef,
             injector
         );
-    }
-
-    /** @hidden */
-    private async _getAriaLabel(): Promise<void> {
-        const lang = await firstValueFrom(this._language);
-        this.ariaLabel = this._translationResolver.resolve(lang, 'coreMultiInput.multiInputAriaLabel');
     }
 }

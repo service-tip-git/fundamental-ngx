@@ -1,0 +1,11 @@
+{
+    "platformMessagePopover.allErrors": "All",
+    "platformMessagePopover.defaultErrors.email": "Email is invalid",
+    "platformMessagePopover.defaultErrors.max": "The field exceeds maximum value",
+    "platformMessagePopover.defaultErrors.maxLength": "The field exceeds maximum length",
+    "platformMessagePopover.defaultErrors.min": "The field value is less than allowed",
+    "platformMessagePopover.defaultErrors.minLength": "The field length is less than allowed",
+    "platformMessagePopover.defaultErrors.pattern": "The field value is invalid",
+    "platformMessagePopover.defaultErrors.required": "The field is mandatory",
+    "platformMessagePopover.defaultErrors.requiredTrue": "The field is mandatory"
+}

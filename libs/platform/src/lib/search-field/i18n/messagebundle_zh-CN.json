@@ -1,0 +1,8 @@
+{
+    "platformSearchField.clearButtonTitle": "清空",
+    "platformSearchField.submitButtonTitle": "搜索",
+    "platformSearchField.searchInputLabel": "搜索",
+    "platformSearchField.synchronizeButtonTitle": "同步",
+    "platformSearchField.searchSuggestionMessage": "找到{count}条建议。",
+    "platformSearchField.searchSuggestionNavigateMessage": "用上下方向键来导航"
+}

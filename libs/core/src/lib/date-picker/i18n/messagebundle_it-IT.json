@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Inserimento data",
+    "coreDatePicker.dateRangeInputLabel": "Inserimento intervallo di date",
+    "coreDatePicker.displayCalendarToggleLabel": "Selettore aperto",
+    "coreDatePicker.valueStateSuccessMessage": "Stato valore Success",
+    "coreDatePicker.valueStateInformationMessage": "Informazioni sullo stato del valore",
+    "coreDatePicker.valueStateWarningMessage": "Avviso stato valore",
+    "coreDatePicker.valueStateErrorMessage": "Errore stato valore"
+}

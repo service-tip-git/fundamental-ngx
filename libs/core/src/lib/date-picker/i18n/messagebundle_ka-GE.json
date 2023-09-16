@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "თარიღის ველი",
+    "coreDatePicker.dateRangeInputLabel": "თარიღის დიაპაზონის ველი",
+    "coreDatePicker.displayCalendarToggleLabel": "ასარჩევის გახსნა",
+    "coreDatePicker.valueStateSuccessMessage": "მნიშვნელობა სწორია",
+    "coreDatePicker.valueStateInformationMessage": "მნიშვნელობა ინფორმატიულია",
+    "coreDatePicker.valueStateWarningMessage": "მნიშვნელობა ითხოვს ყურადღებას",
+    "coreDatePicker.valueStateErrorMessage": "მნიშვნელობა არასწორია"
+}

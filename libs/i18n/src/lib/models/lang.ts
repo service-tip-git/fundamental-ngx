@@ -1,15 +1,13 @@
-import { LocaleTranslations } from '../translation.data';
-
 export type FdLanguageKeyArgs = Record<string, string | number | boolean>;
 
 export type FdLanguageKeyFunction = (args: FdLanguageKeyArgs) => string;
 
-export type FdLanguageKey = string;
+export type FdLanguageKey = string | FdLanguageKeyFunction;
 
 /**
  * Representation of the dictionary per UI component
  */
-export interface FdLanguage extends LocaleTranslations {
+export interface FdLanguage {
     coreMultiComboBox: {
         selectAllLabel: FdLanguageKey;
     };

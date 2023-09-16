@@ -5,13 +5,13 @@ import { TranslationService } from './translation.service';
 import { DEFAULT_FD_TRANSLATIONS, FD_DEFAULT_LOCALE, FD_TRANSLATIONS } from './translation.tokens';
 
 export function provideTranslator(
-    translations: CanBeAsyncFactory<TranslationData> | FactorySansProvider,
+    translations?: CanBeAsyncFactory<TranslationData> | FactorySansProvider,
     defaultLocale?: string,
     defaultTranslations?: CanBeAsyncFactory<TranslationData> | FactorySansProvider
 ): Provider[] {
     return [
         TranslationService,
-        provideTranslations(translations, false),
+        translations ? provideTranslations(translations, false): [],
         defaultLocale ? provideLocale(defaultLocale) : [],
         defaultTranslations ? provideDefaultTranslations(defaultTranslations, false) : []
     ];
@@ -61,4 +61,29 @@ export function getPartialTranslationsProvider(
         return translations;
     }
     return { useValue: translations };
+}
+
+export function componentDefaultTranslationsProvider(
+    basePath: string,
+    withService: boolean = true
+): Provider[] {
+    const locales = [
+        'sq-AL',
+        'bg-BG',
+        'zh-CN',
+        'cs-CZ',
+        'en-US',
+        'fr-FR',
+        'ka-GE',
+        'hi-IN',
+        'it-IT',
+        'pl-PL',
+        'ru-RU',
+        'tr-TR',
+        'uk-UA'
+    ];
+    return provideDefaultTranslations(locales.reduce((acc, locale) => {
+        acc[locale] = () => import(`${basePath}/messagebundle_${locale}.json`);
+        return acc;
+    }, {}), withService);
 }

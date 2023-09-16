@@ -10,8 +10,7 @@ import { runValueAccessorTests } from 'ngx-cva-test-suite';
 import { By } from '@angular/platform-browser';
 import { DatePickerComponent } from './date-picker.component';
 import { DatePickerModule } from './date-picker.module';
-import { FD_LANGUAGE, FD_LANGUAGE_ENGLISH } from '@fundamental-ngx/i18n';
-import { of } from 'rxjs';
+import { patchLanguage, provideTranslator } from '@fundamental-ngx/i18n';
 
 describe('DatePickerComponent', () => {
     let component: DatePickerComponent<FdDate>;
@@ -322,23 +321,6 @@ describe('DatePickerComponent Accessibility', () => {
         template: `
             <fd-date-picker [type]="type" [message]="message" [state]="state" [required]="required"></fd-date-picker>
         `,
-        providers: [
-            {
-                provide: FD_LANGUAGE,
-                useValue: of({
-                    ...FD_LANGUAGE_ENGLISH,
-                    coreDatePicker: {
-                        ...FD_LANGUAGE_ENGLISH.coreDatePicker,
-                        dateInputLabel: 'Date input',
-                        dateRangeInputLabel: 'Date range input',
-                        valueStateSuccessMessage: 'Value state Success',
-                        valueStateInformationMessage: 'Value state Information',
-                        valueStateWarningMessage: 'Value state Warning',
-                        valueStateErrorMessage: 'Value state Error'
-                    }
-                })
-            }
-        ]
     })
     class HostComponent {
         @ViewChild(DatePickerComponent) datePicker: DatePickerComponent<FdDate>;
@@ -353,7 +335,19 @@ describe('DatePickerComponent Accessibility', () => {
         TestBed.configureTestingModule({
             declarations: [HostComponent],
             imports: [FdDatetimeModule, DatePickerModule],
-            providers: []
+            providers: [
+                provideTranslator(),
+                patchLanguage({
+                    coreDatePicker: {
+                        dateInputLabel: 'Date input',
+                        dateRangeInputLabel: 'Date range input',
+                        valueStateSuccessMessage: 'Value state Success',
+                        valueStateInformationMessage: 'Value state Information',
+                        valueStateWarningMessage: 'Value state Warning',
+                        valueStateErrorMessage: 'Value state Error'
+                    }
+                })
+            ]
         }).compileComponents();
     }));
 
@@ -376,7 +370,7 @@ describe('DatePickerComponent Accessibility', () => {
         expect(getInputElement().getAttribute('aria-label')).toBe('Date input');
     });
 
-    it('adds aria-label for date range picker', () => {
+    fit('adds aria-label for date range picker', () => {
         fixture.componentInstance.type = 'range';
         fixture.detectChanges();
         expect(getInputElement().getAttribute('aria-label')).toBe('Date range input');

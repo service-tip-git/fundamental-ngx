@@ -1,0 +1,14 @@
+{
+    "coreSlider.singleMinMaxDetails": "Vlera minimale e rrëshqitësit është {min}, vlera maksimale është {max}",
+    "coreSlider.singleValueminDetails": "Vlera është {value}",
+    "coreSlider.singleValuemaxDetails": "Vlera është  {value}",
+    "coreSlider.singleValueNowDetails": "Vlera aktuale është {value}",
+    "coreSlider.multipleHandle1MinMaxDetails": "Vlera minimale e rrëshqitësit është {min}, vlera maksimale është {max}",
+    "coreSlider.multipleHandle1ValueminDetails": "Vlera është  {value}",
+    "coreSlider.multipleHandle1ValuemaxDetails": "Vlera është {value}",
+    "coreSlider.multipleHandle1ValueNowDetails": "Vlera aktuale është{value}",
+    "coreSlider.multipleHandle2MinMaxDetails": "Vlera minimale e rrëshqitësit është {min}, vlera maksimale është{max}",
+    "coreSlider.multipleHandle2ValueminDetails": "Vlera është {value}",
+    "coreSlider.multipleHandle2ValuemaxDetails": "Vlera është {value}",
+    "coreSlider.multipleHandle2ValueNowDetails": "Vlera aktuale është {value}"
+}

@@ -1,0 +1,10 @@
+{
+    "coreGridList.filterBarCancelButtonTitle": "Anulo",
+    "coreGridList.listItemStatusAriaLabel": "Artikulli ka status. Statusi: {status}.",
+    "coreGridList.listItemCounterAriaLabel": "Artikulli ka {count} nënartikuj.",
+    "coreGridList.listItemButtonDetailsTitle": "Detaje",
+    "coreGridList.listItemButtonDeleteTitle": "Fshi",
+    "coreGridList.listItemStatusContainsErrors": "Përmban gabime.",
+    "coreGridList.listItemStatusLocked": "I kyçur",
+    "coreGridList.listItemStatusDraft": "Draft"
+}

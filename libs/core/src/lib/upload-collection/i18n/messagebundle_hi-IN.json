@@ -1,0 +1,9 @@
+{
+    "coreUploadCollection.menuOkText": "ठीक है",
+    "coreUploadCollection.menuCancelText": "रद्द करें",
+    "coreUploadCollection.menuEditAriaLabel": "संपादित करें",
+    "coreUploadCollection.menuDeleteAriaLabel": "मिटाऐं",
+    "coreUploadCollection.menuOkAriaLabel": "संपादित करें",
+    "coreUploadCollection.menuCancelAriaLabel": "रद्द करें",
+    "coreUploadCollection.formItemPlaceholder": "फ़ाइल का नाम"
+}

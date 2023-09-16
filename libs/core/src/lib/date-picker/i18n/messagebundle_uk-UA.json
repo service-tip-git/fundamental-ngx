@@ -1,0 +1,9 @@
+{
+    "coreDatePicker.dateInputLabel": "Поле вводу дати",
+    "coreDatePicker.dateRangeInputLabel": "Поле введення діапазону дат",
+    "coreDatePicker.displayCalendarToggleLabel": "Відкрити засіб вибору",
+    "coreDatePicker.valueStateSuccessMessage": "Значення стану: Успіх",
+    "coreDatePicker.valueStateInformationMessage": "Значення стану: Інформаційний",
+    "coreDatePicker.valueStateWarningMessage": "Значення стану: Попередження",
+    "coreDatePicker.valueStateErrorMessage": "Значення стану: Помилка"
+}
