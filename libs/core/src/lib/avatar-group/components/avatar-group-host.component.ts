@@ -1,11 +1,9 @@
-import { NgIf } from '@angular/common';
 import {
     AfterViewInit,
-    ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component,
     ContentChildren,
     DestroyRef,
+    Directive,
     ElementRef,
     inject,
     Input,
@@ -13,8 +11,7 @@ import {
     OnInit,
     QueryList,
     signal,
-    SimpleChanges,
-    ViewEncapsulation
+    SimpleChanges
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -29,14 +26,13 @@ import { AvatarGroupItemRendererDirective } from '../directives/avatar-group-ite
 import { AvatarGroupItemDirective } from '../directives/avatar-group-item.directive';
 import { AvatarGroupHostConfig } from '../types';
 
-@Component({
+@Directive({
+    // eslint-disable-next-line @angular-eslint/directive-selector
     selector: 'fd-avatar-group-host',
-    template: '<ng-content></ng-content>',
     standalone: true,
-    imports: [NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    exportAs: 'avatarGroupHost'
 })
+// eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class AvatarGroupHostComponent
     implements OnInit, AfterViewInit, OnChanges, HasElementRef, AvatarGroupHostConfig, CssClassBuilder
 {

@@ -12,11 +12,11 @@ import {
     Optional,
     ViewEncapsulation
 } from '@angular/core';
-import { NestedItemService } from './nested-item/nested-item.service';
-import { RtlService } from '@fundamental-ngx/core/utils';
-import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
 import { IconComponent } from '@fundamental-ngx/core/icon';
+import { RtlService } from '@fundamental-ngx/core/utils';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { NestedItemService } from './nested-item/nested-item.service';
 
 let uniqueId = 0;
 
@@ -42,11 +42,11 @@ export class NestedListHeaderDirective {
     }
 }
 
-@Component({
+@Directive({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: '[cxNestedDirectivesIcon], [fdx-nested-list-icon]',
-    template: `<ng-content></ng-content>`
+    selector: '[cxNestedDirectivesIcon], [fdx-nested-list-icon]'
 })
+// eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NestedListIconComponent extends IconComponent {
     /** Role attribute */
     @Input()
