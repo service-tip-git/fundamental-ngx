@@ -1,5 +1,6 @@
 import {
     AfterContentInit,
+    Attribute,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -22,7 +23,7 @@ import {
 
 import { ENTER, SPACE } from '@angular/cdk/keycodes';
 import { DecimalPipe, NgIf } from '@angular/common';
-import { KeyUtil, LIST_ITEM_COMPONENT, ListItemInterface } from '@fundamental-ngx/cdk/utils';
+import { KeyUtil, LIST_ITEM_COMPONENT, ListItemInterface, Nullable } from '@fundamental-ngx/cdk/utils';
 import { ButtonComponent, FD_BUTTON_COMPONENT } from '@fundamental-ngx/core/button';
 import { CheckboxComponent, FD_CHECKBOX_COMPONENT } from '@fundamental-ngx/core/checkbox';
 import { FormItemComponent } from '@fundamental-ngx/core/form';
@@ -113,6 +114,10 @@ export class ListItemComponent extends ListFocusItem implements AfterContentInit
     @HostBinding('class.fd-list__item--link')
     link = false;
 
+    /** Aria-role attribute. */
+    @Input()
+    ariaRole: Nullable<string>;
+
     /** @hidden */
     @ContentChild(FD_RADIO_BUTTON_COMPONENT)
     set radio(value: RadioButtonComponent) {
@@ -168,6 +173,11 @@ export class ListItemComponent extends ListFocusItem implements AfterContentInit
 
     /** @hidden */
     @HostBinding('attr.role')
+    private get roleAttr(): string {
+        return this.ariaRole || this._role;
+    }
+
+    /** @hidden */
     private _role = 'listitem'; // default for li elements
 
     /** @hidden */
@@ -182,6 +192,7 @@ export class ListItemComponent extends ListFocusItem implements AfterContentInit
     constructor(
         public readonly elementRef: ElementRef,
         private readonly _changeDetectorRef: ChangeDetectorRef,
+        @Attribute('role') private readonly _defaultRole: string | null,
         @Optional() @Inject(FD_LIST_UNREAD_INDICATOR) private readonly _unreadIndicator?: ListUnreadIndicator
     ) {
         super(elementRef);
